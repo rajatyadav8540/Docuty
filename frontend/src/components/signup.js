@@ -11,6 +11,7 @@ export default function Signup(){
 
     const handleChange=(e)=>{
         setsignupState({...signupState,[e.target.id]:e.target.value})
+       
     }
 
 
