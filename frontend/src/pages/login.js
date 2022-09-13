@@ -1,8 +1,8 @@
 
-import Header from "../components/header"
-import Login from "../components/login"
-import Button from "../components/formaction"
-import Navbar  from "../components/navbarbase"
+import Header from "../components/signup_login/header"
+import Login from "../components/signup_login/login"
+import Button from "../components/signup_login/formaction"
+import Navbar  from "../components/navbar/navbarbase"
 
 export default function LoginPage(){
     return(

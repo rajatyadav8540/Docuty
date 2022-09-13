@@ -1,4 +1,4 @@
-import react from 'react';
+
 import {card} from '../constants/cardconstant'
 import OneCard from '../components/onecard';
 

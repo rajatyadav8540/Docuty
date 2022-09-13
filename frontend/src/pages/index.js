@@ -1,6 +1,6 @@
 
-import Navbar  from "../components/navbarbase"
-import MainBanner from "../components/main_banner"
+import Navbar  from "../components/navbar/navbarbase"
+import MainBanner from "../components/main_banner/main_banner"
 import Card from './fullcard'
 
 

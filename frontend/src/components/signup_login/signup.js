@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { signupFields } from "../constants/formfield";
+import { signupFields } from "../../constants/formfield";
 import Input from "./input";
 
 const fields=signupFields;
