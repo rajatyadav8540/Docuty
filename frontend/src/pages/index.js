@@ -1,5 +1,7 @@
 
 import Navbar  from "../components/navbarbase"
+import MainBanner from "../components/main_banner"
+import Card from './fullcard'
 
 
 export default function Index(){
@@ -7,9 +9,11 @@ export default function Index(){
         <div>
              <Navbar/>
 
-               <h1 className="text-7xl mt-24">
-                main index page content goes here
-               </h1> 
+               <MainBanner 
+                message='here are you welcome'
+                buttonName ='OUR SEVICES'
+               /> 
+               <Card />
             
         </div>
     )

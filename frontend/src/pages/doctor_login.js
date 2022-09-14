@@ -3,7 +3,7 @@ import Header from "../components/header"
 import Login from "../components/login"
 import Button from "../components/formaction"
 import Navbar  from "../components/navbarbase"
- 
+
 export default function LoginDoc(){
     return(
         <>

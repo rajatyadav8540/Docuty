@@ -3,13 +3,15 @@ import NavLogo from "./navbarlogo";
 
 import Log_Sign from "./sing_login_navbar";
 
-
+function classNames(...classes) {
+  return classes.filter(Boolean).join(" ");
+}
 
 export default function Navbar() {
   return (
     <div className="flex justify-between p-8 border-b-2 items-center">
       <div>
-        <NavLogo logo="Logo name" logoUrl="/" />
+        <NavLogo logo="Docuty" logoUrl="/" />
       </div>
       <div className="flex justify-center gap-x-9 items-center">
         <Nav name="About" nameUrl="/about" />
