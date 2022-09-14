@@ -1,11 +1,18 @@
 import {Doc} from './constant/docdata'
 import Template from './card_template'
+import Header from './card_header'
 const doc = Doc
 export default function DocCard(){
     
     return(
         <>
-        <div className='grid grid-cols-4 gap-4 mx-28'>
+        <div className='mx-28'>
+            <Header 
+            heading='Top rated doctor'
+            subHeading ="Private online consultations with verified doctors in all specialists"
+            />
+        
+        <div className='grid grid-cols-4 gap-4 '>
         {
             doc.map((docy)=>(
             <Template 
@@ -15,6 +22,7 @@ export default function DocCard(){
             />
             ))
         }
+        </div>
         </div>
         </>
     )

@@ -12,7 +12,7 @@ export default function Banner({
     <div className="">
       <div className="flex flex-wrap items-center">
         <div className="grow-0 shrink-0 basis-auto block lg:flex w-full lg:w-6/12 xl:w-4/12">
-          <img src={vector}  className="w-full rounded-t-lg lg:rounded-tr-none lg:rounded-bl-lg" />
+          <img src='https://images.unsplash.com/photo-1622253692010-333f2da6031d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fGRvY3RvcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60'  className="w-full rounded-3xl" />
         </div>
         <div className="grow-0 shrink-0 basis-auto w-full lg:w-6/12 xl:w-8/12">
           <div className="px-6 py-12 md:px-12">
