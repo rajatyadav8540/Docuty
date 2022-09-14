@@ -1,24 +1,20 @@
 import 'package:doc2/pages/login_page.dart';
+import 'package:doc2/pages/register_page.dart';
 import 'package:doc2/pages/start.dart';
-import 'package:doc2/pages/user_res.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
 
 import 'home_page.dart';
 
-class RegisterPage extends StatefulWidget {
-  const RegisterPage({
-    Key? key,
-  }) : super(key: key);
+class DocRegister extends StatefulWidget {
+  DocRegister({Key? key}) : super(key: key);
 
   @override
-  State<RegisterPage> createState() => _RegisterPageState();
+  State<DocRegister> createState() => _DocRegisterState();
 }
 
-class _RegisterPageState extends State<RegisterPage> {
-  //text controllers
-  //final formkey =GlobalKey<FormState>();
+class _DocRegisterState extends State<DocRegister> {
   bool _passWis = true;
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
@@ -53,7 +49,6 @@ class _RegisterPageState extends State<RegisterPage> {
       return false;
     }
   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -100,11 +95,11 @@ class _RegisterPageState extends State<RegisterPage> {
            Padding(
              padding: const EdgeInsets.only(right:32),
              child: Row(mainAxisAlignment: MainAxisAlignment.end, children: [
-              const Text("For Docter,  ", style: TextStyle(fontSize: 18)),
+              const Text("For User,  ", style: TextStyle(fontSize: 18)),
               GestureDetector(
                 onTap: () {
                  Navigator.push(context, MaterialPageRoute(builder: (context) {
-                      return DocRegister();
+                      return RegisterPage();
                     }));
                 },
                 child: const Text("Register Here",

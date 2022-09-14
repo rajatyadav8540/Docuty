@@ -1,3 +1,6 @@
+import 'package:doc2/pages/home_page.dart';
+import 'package:doc2/pages/register_page.dart';
+import 'package:doc2/pages/start.dart';
 import 'package:email_validator/email_validator.dart';
 
 import 'package:flutter/cupertino.dart';
@@ -7,8 +10,8 @@ import '../widget/numorphic.dart';
 import 'forget_passward.dart';
 
 class Loginpage extends StatefulWidget {
-  final VoidCallback showRegisterPage;
-  const Loginpage({Key? key, required this.showRegisterPage}) : super(key: key);
+ 
+  const Loginpage({Key? key}) : super(key: key);
 
   @override
   State<Loginpage> createState() => _LoginpageState();
@@ -42,13 +45,19 @@ class _LoginpageState extends State<Loginpage> {
       body: SingleChildScrollView(
           child: Column(children: [
         //image or Any text fo user guidence.
-        mum(
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(16),
-            child: Image.asset(
-              "assets/images/login.png",
-              fit: BoxFit.cover,
-              height: 250,
+        Padding(
+          padding:  const EdgeInsets.only(left: 32, right: 32, top: 4, bottom: 1),
+          child: SizedBox(
+             height: 250,
+            child: mum(
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(8),
+                child: Image.asset(
+                  "assets/images/login.png",
+                  fit: BoxFit.cover,
+                 // height: 250,
+                ),
+              ),
             ),
           ),
         ),
@@ -157,7 +166,11 @@ class _LoginpageState extends State<Loginpage> {
                 color: Colors.white,
               ),
             ),
-            onPressed: signIn,
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    return startpage();
+                  }));
+            },
           ),
         ),
 
@@ -169,7 +182,11 @@ class _LoginpageState extends State<Loginpage> {
         Row(mainAxisAlignment: MainAxisAlignment.center, children: [
           const Text("Not a member? ", style: TextStyle(fontSize: 18)),
           GestureDetector(
-            onTap: widget.showRegisterPage,
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    return const RegisterPage();
+                  }));
+            },
             child: const Text("Register Here",
                 style: TextStyle(
                     color: Colors.blue,
@@ -188,7 +205,11 @@ class _LoginpageState extends State<Loginpage> {
         Padding(
           padding: const EdgeInsets.only(left: 32, right: 32),
           child: FloatingActionButton.extended(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    return Home();
+                  }));
+            },
             icon:
                 Image.asset("assets/images/google.png", height: 33, width: 33),
             label: const Text("Sign in with Google"),
