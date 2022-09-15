@@ -1,18 +1,22 @@
 import Header from "./header"
-export default function Template({}){
+export default function Template({
+    name,
+    review,
+    image
+}){
     return(
         <>
-            <div className="flex justify-center">
+            <div className="mb-12">
                 <div>
-                    <div>
-                        <img className="rounded-full" src ={image}></img>
+                    <div className="flex justify-center">
+                        <img className="rounded-full  shadow-lg w-32 mb-12 hover:opacity-90" src ={image}></img>
                     </div>
                     <div>
-                        <h1>
-                            {content}
-                        </h1>
-                        <h1>
+                        <h1 className="text-2xl mb-4">
                             {name}
+                        </h1>
+                        <h1 className="text-md opacity-50">
+                            {review}
                         </h1>
                     </div>
                 </div>

@@ -6,7 +6,7 @@ import Banner from '../components/second_banner/second_banner'
 import { useState } from "react"
 import DocCard from "../components/doctor_card/final_card"
 import Download from "../components/download_app/full_download"
-import Template from "../components/testimonial/template"
+import FullTestimonial from "../components/testimonial/full"
 
 
 
@@ -27,7 +27,7 @@ export default function Index(){
                <DocCard /> 
                <Full/>
                <Download/>
-               <Template />
+               <FullTestimonial/>
                           
         </div>
     )
