@@ -8,6 +8,7 @@ import DocCard from "../components/doctor_card/final_card"
 import Download from "../components/download_app/full_download"
 import FullTestimonial from "../components/testimonial/full"
 import Company from "../components/footer/company"
+import FullFooter from "../components/footer/fullfooter"
 
 
 
@@ -29,7 +30,7 @@ export default function Index(){
                <Full/>
                <Download/>
                <FullTestimonial/>
-               <Company/>
+               <FullFooter />
                           
         </div>
     )

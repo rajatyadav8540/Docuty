@@ -1,13 +1,13 @@
 import { company } from "./constant";
 import Header from "./header";
 
-export default function  Companyr({}){
+export default function Company(){
     const comp = company
     return (
         <>
         <div className="flex justify-left">
         <div>
-            <div className="mb-4">
+            <div className="mb-8">
                 <Header
                 heading="Company"
                 />

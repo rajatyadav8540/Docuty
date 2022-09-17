@@ -1,12 +1,12 @@
 import { services } from "./constant"
 import Header from "./header"
-export default function  Services({}){
+export default function  Services(){
     const ser = services
     return (
         <>
         <div className="flex justify-center">
         <div>
-            <div className="mb-4">
+            <div className="mb-8">
                 <Header
                 heading="Services"
                 />

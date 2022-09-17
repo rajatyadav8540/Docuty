@@ -33,4 +33,4 @@ const company =[
             company : 'privacy policy'
         },
 ]
-export{company ,explore,services}
+export{company ,explore, services}

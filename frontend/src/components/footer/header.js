@@ -1,9 +1,9 @@
 export default function Header({
     heading
 }){
- return(
+   return(
     <>
-        <div className="text-3xl" >
+        <div className="text-4xl" >
             {heading}
         </div>
     </>

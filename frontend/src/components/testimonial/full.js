@@ -5,7 +5,7 @@ export default function FullTestimonial(){
     const review  = rev
     return(
         <>
-            <div className="mt-32">
+            <div className="mt-32 mb-64">
                 <Header
                  heading = 'What our users have to say'
                  />
