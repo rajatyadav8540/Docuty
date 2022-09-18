@@ -1,10 +1,12 @@
 
+import 'package:doc2/pages/start.dart';
 import 'package:flutter/material.dart';
 
 class MySearchDelegate extends SearchDelegate {
    List<String> searchResult =[
      "Delhi","ghaziabad","punjab",
   ];
+
   @override
   Widget? buildLeading(BuildContext context) => IconButton(
     onPressed: () => close(context,null),
@@ -25,12 +27,14 @@ class MySearchDelegate extends SearchDelegate {
   ];
 
   @override
-  Widget buildResults(BuildContext context) =>Center(
-    child: Text(query,
+  Widget buildResults(BuildContext context) =>
+   startpage();
+  
+     /*Text(query,
     style:const TextStyle(fontSize: 64,
     fontWeight:FontWeight.bold,
-    )),
-  );
+    ));*/
+  
 
   @override
   Widget buildSuggestions(BuildContext context) {
