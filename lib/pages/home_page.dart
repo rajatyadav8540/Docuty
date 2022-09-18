@@ -1,8 +1,12 @@
+//import 'dart:html';
+
 import 'package:doc2/pages/login_page.dart';
 import 'package:doc2/widget/drawer.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
+import 'package:flutter/rendering.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../utils/image_carousel.dart';
 import '../widget/doc_card.dart';
@@ -18,8 +22,10 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   var images = {
-    "google.png": "go",
-    "login.png": "login",
+    "fever.png": "fever",
+    "sneeze.png": "sneeze",
+    "fever2.png": "sneeze",
+    "login.png": "sneeze",
   };
 
   @override
@@ -142,16 +148,17 @@ class _HomeState extends State<Home> {
                     ],
                   ),
                 )),
-                SliverPadding(
+            SliverPadding(
               padding: EdgeInsets.only(
                 left: 25,
                 right: 25,
               ),
-              sliver: SliverToBoxAdapter(child:Container(
-                 height: MediaQuery.of(context).size.height * 0.003,
-                 decoration:BoxDecoration(color:Colors.grey[300],
-                 borderRadius: BorderRadius.circular(30))
-                )),
+              sliver: SliverToBoxAdapter(
+                  child: Container(
+                      height: MediaQuery.of(context).size.height * 0.003,
+                      decoration: BoxDecoration(
+                          color: Colors.grey,
+                          borderRadius: BorderRadius.circular(30)))),
             ),
             const SliverPadding(
               padding: EdgeInsets.only(
@@ -172,19 +179,20 @@ class _HomeState extends State<Home> {
                 ),
               ),
             ),
-             SliverPadding(
+            SliverPadding(
               padding: EdgeInsets.only(
                 left: 25,
                 right: 25,
               ),
-              sliver: SliverToBoxAdapter(child:Container(
-                 height: MediaQuery.of(context).size.height * 0.003,
-                 decoration:BoxDecoration(color:Colors.grey[300],
-                 borderRadius: BorderRadius.circular(30))
-                )),
+              sliver: SliverToBoxAdapter(
+                  child: Container(
+                      height: MediaQuery.of(context).size.height * 0.003,
+                      decoration: BoxDecoration(
+                          color: Colors.grey,
+                          borderRadius: BorderRadius.circular(30)))),
             ),
             SliverPadding(
-              padding: EdgeInsets.only(left: 25, right: 25,top:7),
+              padding: EdgeInsets.only(left: 25, right: 25, top: 7),
               sliver: SliverToBoxAdapter(
                   child: Text(
                 "About Docters",
@@ -196,7 +204,7 @@ class _HomeState extends State<Home> {
               )),
             ),
             SliverPadding(
-              padding: EdgeInsets.only(left: 25, right: 25),
+              padding: EdgeInsets.only(left: 25, right: 0),
               sliver: SliverToBoxAdapter(
                   child: Row(
                 children: [
@@ -212,20 +220,52 @@ class _HomeState extends State<Home> {
                       ),
                     ),
                   ),
-                
+                  SizedBox(
+                    // height: MediaQuery.of(context).size.height * 0.025,
+                    width: MediaQuery.of(context).size.width * 0.01,
+                  ),
+                  Container(
+                      height: MediaQuery.of(context).size.height * 0.3,
+                      width: MediaQuery.of(context).size.width * 0.4,
+                      child: Padding(
+                        padding: EdgeInsets.all(3.0),
+                        child: Column(children: [
+                          Text(
+                            "You are in safe hands now.",
+                            style: TextStyle(
+                              fontWeight: FontWeight.w800,
+                              color: Colors.black87,
+                              fontSize: 20,
+                            ),
+                          ),
+                           SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.025,
+                    //width: MediaQuery.of(context).size.width * 0.01,
+                  ),
+                           Text(
+                "private online consultation with veified docters in all specialists.vhjZXV bjcaj nbm csajac wdkhqs d dd dwwmhq",
+                style: TextStyle(
+                  fontWeight: FontWeight.normal,
+                  color: Colors.grey,
+                  fontSize: 15,
+                ),
+              )
+                        ]),
+                      )),
                 ],
               )),
             ),
-             SliverPadding(
+            SliverPadding(
               padding: EdgeInsets.only(
                 left: 25,
                 right: 25,
               ),
-              sliver: SliverToBoxAdapter(child:Container(
-                 height: MediaQuery.of(context).size.height * 0.003,
-                 decoration:BoxDecoration(color:Colors.grey[300],
-                 borderRadius: BorderRadius.circular(30))
-                )),
+              sliver: SliverToBoxAdapter(
+                  child: Container(
+                      height: MediaQuery.of(context).size.height * 0.003,
+                      decoration: BoxDecoration(
+                          color: Colors.grey,
+                          borderRadius: BorderRadius.circular(30)))),
             ),
             SliverPadding(
               padding: EdgeInsets.only(
@@ -240,7 +280,7 @@ class _HomeState extends State<Home> {
               ),
             ),
             SliverPadding(
-              padding: EdgeInsets.only(left: 25,top:7),
+              padding: EdgeInsets.only(left: 25, top: 7),
               sliver: SliverToBoxAdapter(
                   child: Text(
                 "Top Rated Docters",
@@ -294,21 +334,20 @@ class _HomeState extends State<Home> {
               ),
               sliver: SliverToBoxAdapter(
                   child: Container(
-                      height: 430,
+                      height: 470,
                       width: double.maxFinite,
                       decoration: BoxDecoration(
-                         color: Colors.grey[300],
-                         borderRadius:BorderRadius.circular(40)
-                      ),
-                     
+                          color: Colors.grey[300],
+                          borderRadius: BorderRadius.circular(40)),
                       child: Stack(children: [
                         //left top
                         Positioned(
                             top: 80,
                             left: 25,
                             child: Container(
-                              height: 120,
+                              height: 140,
                               width: MediaQuery.of(context).size.width * 0.42,
+                              child: DocCard(),
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(10),
                                   color: Colors.white),
@@ -320,8 +359,15 @@ class _HomeState extends State<Home> {
                               child: Container(
                                 height: 110,
                                 width: MediaQuery.of(context).size.width * 0.32,
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(8),
+                                  child: Image.asset(
+                                    "assets/images/doc.png",
+                                    fit: BoxFit.cover,
+                                    // height: 250,
+                                  ),
+                                ),
                                 decoration: BoxDecoration(
-                                    color: Colors.black,
                                     borderRadius: BorderRadius.circular(10)),
                               ),
                             )),
@@ -330,8 +376,9 @@ class _HomeState extends State<Home> {
                             top: 80,
                             right: 25,
                             child: Container(
-                              height: 120,
+                              height: 140,
                               width: MediaQuery.of(context).size.width * 0.42,
+                              child: DocCard(),
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(10),
                                   color: Colors.white),
@@ -343,79 +390,126 @@ class _HomeState extends State<Home> {
                               child: Container(
                                 height: 110,
                                 width: MediaQuery.of(context).size.width * 0.32,
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(8),
+                                  child: Image.asset(
+                                    "assets/images/doc.png",
+                                    fit: BoxFit.cover,
+                                    // height: 250,
+                                  ),
+                                ),
                                 decoration: BoxDecoration(
-                                    color: Colors.black,
                                     borderRadius: BorderRadius.circular(10)),
                               ),
                             )),
-                            // left bottom
-                             Positioned(
-                            top: 280,
+                        // left bottom
+                        Positioned(
+                            top: 300,
                             left: 25,
                             child: Container(
-                              height: 120,
+                              height: 140,
                               width: MediaQuery.of(context).size.width * 0.42,
+                              child: DocCard(),
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(10),
                                   color: Colors.white),
                             )),
                         Positioned(
-                            top: 230,
+                            top: 250,
                             left: 38,
                             child: mum(
                               child: Container(
                                 height: 110,
                                 width: MediaQuery.of(context).size.width * 0.32,
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(8),
+                                  child: Image.asset(
+                                    "assets/images/doc.png",
+                                    fit: BoxFit.cover,
+                                    // height: 250,
+                                  ),
+                                ),
                                 decoration: BoxDecoration(
-                                    color: Colors.black,
                                     borderRadius: BorderRadius.circular(10)),
                               ),
                             )),
-                            // right bottom
-                            Positioned(
-                            top: 280,
+                        // right bottom
+                        Positioned(
+                            top: 300,
                             right: 25,
                             child: Container(
-                              height: 120,
+                              height: 140,
                               width: MediaQuery.of(context).size.width * 0.42,
+                              child: DocCard(),
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(10),
                                   color: Colors.white),
                             )),
                         Positioned(
-                            top: 230,
+                            top: 250,
                             right: 38,
                             child: mum(
                               child: Container(
                                 height: 110,
                                 width: MediaQuery.of(context).size.width * 0.32,
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(8),
+                                  child: Image.asset(
+                                    "assets/images/doc.png",
+                                    fit: BoxFit.cover,
+                                    // height: 250,
+                                  ),
+                                ),
                                 decoration: BoxDecoration(
-                                    color: Colors.black,
                                     borderRadius: BorderRadius.circular(10)),
                               ),
                             )),
                       ]))),
             ),
             SliverPadding(
-                padding: EdgeInsets.only(right: 25, top: 5),
+              padding: EdgeInsets.only(left: 25, right: 25, top: 7),
+              sliver: SliverToBoxAdapter(
+                  child: Column(
+                children: [
+                  Text(
+                    "Our services ",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
+                      fontSize: 20,
+                    ),
+                  ),
+                  Text(
+                    "private online consultation with veified docters in all specialists",
+                    style: TextStyle(
+                      fontWeight: FontWeight.normal,
+                      color: Colors.grey,
+                      fontSize: 15,
+                    ),
+                  )
+                ],
+              )),
+            ),
+            SliverPadding(
+                padding: EdgeInsets.only(right: 25, top: 16,bottom: 10),
                 sliver: SliverToBoxAdapter(
                   child: Container(
-                      height: 110,
+                      height: 120,
                       width: double.maxFinite,
-                      margin: const EdgeInsets.only(left: 20),
+                      margin: const EdgeInsets.only(left: 30),
                       child: ListView.builder(
-                          itemCount: 2,
+                          itemCount: 4,
                           scrollDirection: Axis.horizontal,
                           itemBuilder: (_, index) {
                             return Container(
-                              margin: const EdgeInsets.only(right: 25),
+                              margin: const EdgeInsets.only(right: 35),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Container(
                                     // margin:const EdgeInsets.only(right:50),
-                                    height: 80,
-                                    width: 80,
+                                    height: 90,
+                                    width: 90,
                                     decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(20),
                                         color: Colors.white,
@@ -431,11 +525,164 @@ class _HomeState extends State<Home> {
                                       child: Text(
                                     images.values.elementAt(index),
                                   )),
+                                 
+                                  
                                 ],
                               ),
                             );
                           })),
                 )),
+                SliverPadding(
+              padding: EdgeInsets.only(
+                left: 60,
+                right: 60,
+              ),
+              sliver: SliverToBoxAdapter(
+                  child: Container(
+                      height: MediaQuery.of(context).size.height * 0.003,
+                      decoration: BoxDecoration(
+                          color: Color.fromARGB(255, 25, 221, 48),
+                          borderRadius: BorderRadius.circular(30)))),
+            ),
+             SliverPadding(
+              padding: EdgeInsets.only(
+                left: 0,
+                right: 0,
+              ),
+              sliver: SliverToBoxAdapter(
+                  child: Container(
+                      height: 370,
+                      width: double.maxFinite,
+                      decoration: BoxDecoration(
+                          color: Colors.grey[300],
+                          borderRadius: BorderRadius.circular(40)),
+                      child: Stack(children: [
+                        //left top
+                        Positioned(
+                            top: 30,
+                            left: 25,
+                            child: Container(
+                              height: 140,
+                              width: MediaQuery.of(context).size.width * 0.42,
+                              child:mum(
+                              child: Container(
+                               
+                                height: 110,
+                                width: MediaQuery.of(context).size.width * 0.32,
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(8),
+                                  child: Image.asset(
+                                    "assets/images/motorbike.png",
+                                    //fit: BoxFit.cover,
+                                    // height: 250,
+                                  ),
+                                ),
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(10)),
+                              ),
+                            ),
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10),
+                                  color: Colors.white),
+                            )),
+                       
+                        // right side top
+                        Positioned(
+                            top: 30,
+                            right: 25,
+                            child: Container(
+                              height: 140,
+                              width: MediaQuery.of(context).size.width * 0.42,
+                              child:mum(
+                              child: Container(
+                               
+                                
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(8),
+                                  child: Image.asset(
+                                    "assets/images/shield.png",
+                                   // fit: BoxFit.cover,
+                                    // height: 250,
+                                  ),
+                                ),
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(10)),
+                              ),
+                            ),
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10),
+                                  color: Colors.white),
+                            )),
+                        // left bottom
+                        Positioned(
+                            top: 200,
+                            left: 25,
+                            child: Container(
+                              height: 140,
+                              width: MediaQuery.of(context).size.width * 0.42,
+                              child:mum(
+                              child: Container(
+                               
+                                height: 110,
+                                width: MediaQuery.of(context).size.width * 0.32,
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(8),
+                                  child: Image.asset(
+                                    "assets/images/chemistry.png",
+                                    //fit: BoxFit.cover,
+                                    // height: 250,
+                                  ),
+                                ),
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(10)),
+                              ),
+                            ),
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10),
+                                  color: Colors.white),
+                            )),
+                        // right bottom
+                        Positioned(
+                            top: 200,
+                            right: 25,
+                            child: Container(
+                              height: 140,
+                              width: MediaQuery.of(context).size.width * 0.42,
+                              child:mum(
+                              child: Container(
+                               
+                                height: 110,
+                                width: MediaQuery.of(context).size.width * 0.32,
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(8),
+                                  child: Image.asset(
+                                    "assets/images/results.png",
+                                    //fit: BoxFit.cover,
+                                    // height: 250,
+                                  ),
+                                ),
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(10)),
+                              ),
+                            ),
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10),
+                                  color: Colors.white),
+                            )),
+                      ]))),
+            ),  
+             SliverPadding(
+              padding: EdgeInsets.only(
+                left: 60,
+                right: 60,
+              ),
+              sliver: SliverToBoxAdapter(
+                  child: Container(
+                      height: MediaQuery.of(context).size.height * 0.003,
+                      decoration: BoxDecoration(
+                          color: Color.fromARGB(255, 25, 221, 48),
+                          borderRadius: BorderRadius.circular(30)))),
+            ),  
           ],
         ));
   }
