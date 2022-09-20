@@ -1,11 +1,9 @@
-import Nav from "./navitems";
+
 import NavLogo from "./navbarlogo";
 
 import Log_Sign from "./sing_login_navbar";
 
-function classNames(...classes) {
-  return classes.filter(Boolean).join(" ");
-}
+
 
 export default function Navbar() {
   return (
@@ -14,9 +12,6 @@ export default function Navbar() {
         <NavLogo logo="Docuty" logoUrl="/" />
       </div>
       <div className="flex justify-center gap-x-9 items-center">
-        <Nav name="About" nameUrl="/about" />
-        <Nav name="Link1" nameUrl="/" />
-        <Nav name="Link2" nameUrl="/" />
         <Log_Sign
             name="Sign up"
             usernameUrl="/login"
