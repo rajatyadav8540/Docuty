@@ -10,8 +10,7 @@ import FullTestimonial from "../components/testimonial/full"
 import Company from "../components/footer/company"
 import FullFooter from "../components/footer/fullfooter"
 import BasicButtons from "../components/input/button"
-
-
+import DocPage from "../components/doc_page/doc_final"
 
 export default function Index(){
    
@@ -32,7 +31,7 @@ export default function Index(){
                <Download/>
                <FullTestimonial/>
                <FullFooter />
-               
+               <DocPage/>
                           
         </div>
     )
