@@ -13,12 +13,12 @@ export default function Navbar() {
       </div>
       <div className="flex justify-center gap-x-9 items-center">
         <Log_Sign
-            name="Sign up"
+            name="Login"
             usernameUrl="/login"
             docnameUrl="/login_doc"
             />
         <Log_Sign
-            name="Log in"
+            name="Sign up"
             usernameUrl="/signup"
             docnameUrl="/signup_doc"
             />

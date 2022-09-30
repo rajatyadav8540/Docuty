@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { loginFields } from "../../constants/formfield";
 import Input from "./input";
+import Formaction from "./formaction";
 
 const fields = loginFields;
 let fieldsState = {};
@@ -29,6 +30,8 @@ export default function Login() {
             isRequired={field.isRequired}
           />
         ))}
+        <Formaction
+        text="Login"/>
       </div>
     </form>
   );

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { signupFields } from "../../constants/formfield";
 import Input from "./input";
-
+import Formaction from "./formaction";
 const fields = signupFields;
 let fieldsState = {};
 fields.forEach((field) => (fieldsState[field.id] = ""));
@@ -29,6 +29,8 @@ export default function Signup() {
             isRequired={field.isRequired}
           />
         ))}
+        <Formaction
+        text="Sign up"/>
       </div>
     </form>
   );
