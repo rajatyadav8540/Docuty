@@ -2,11 +2,11 @@ import { useState } from "react";
 import { signupFields } from "../../constants/formfield";
 import Input from "./input";
 import Formaction from "./formaction";
-import { useNavigate } from 'react-router-dom'
+// import { useNavigate } from 'react-router-dom'
 const fields = signupFields;
 let fieldsState = {};
 fields.forEach((field) => (fieldsState[field.id] = ""));
-const history = useNavigate();
+
 
 export default function Signup() {
   const [signupState, setsignupState] = useState(fieldsState);
@@ -29,7 +29,7 @@ export default function Signup() {
       }
      })
      result = await result.json();
-     history("/login")
+    
   }
 
   return (
