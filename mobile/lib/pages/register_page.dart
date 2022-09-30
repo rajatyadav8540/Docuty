@@ -1,10 +1,14 @@
+import 'dart:async';
+import 'dart:convert';
+
 import 'package:doc2/pages/login_page.dart';
 import 'package:doc2/pages/start.dart';
 import 'package:doc2/pages/user_res.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
-
+import 'package:http/http.dart' as http;
+import '../services/auth.dart';
 import 'home_page.dart';
 
 class RegisterPage extends StatefulWidget {
@@ -20,37 +24,37 @@ class _RegisterPageState extends State<RegisterPage> {
   //text controllers
   //final formkey =GlobalKey<FormState>();
   bool _passWis = true;
-  final _emailController = TextEditingController();
-  final _passwordController = TextEditingController();
-  final _confirmpasswardController = TextEditingController();
-  final _usernameController = TextEditingController();
-  final _phoneController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+  TextEditingController confirmpasswardController = TextEditingController();
+  TextEditingController usernameController = TextEditingController();
+  TextEditingController phoneController = TextEditingController();
 
-  @override
-  void dispose() {
-    _emailController.dispose();
-    _passwordController.dispose();
-    _confirmpasswardController.dispose();
-    super.dispose();
-  }
-
-  Future signUp() async {
-    if (passwardconfirmed()) {
-      // await FirebaseAuth.instance.createUserWithEmailAndPassword(
-      email:
-      _emailController.text.trim();
-      password:
-      _passwordController.text.trim();
-      //  );
-    }
-  }
-
-  bool passwardconfirmed() {
-    if (_passwordController.text.trim() ==
-        _confirmpasswardController.text.trim()) {
-      return true;
-    } else {
-      return false;
+  void register(
+      String email, password, confirmpassword, phone, username) async {
+    try {
+      Response response = await post(
+        Uri.parse("http://127.0.0.1:8000/api/register"),
+        body: {//jsonEncode();
+          'email': email,
+          'password': password,
+          'username': username,
+          /* 'confirmpassword': confirmpassword,
+          'phone': phone*/
+        },
+       /*  headers:{
+          "Content-Type":"application/json; charset=UTF-8",
+        }*/
+      );
+      if (response.statusCode == 200) {
+        var data = jsonDecode(response.body.toString());
+        print(data);
+        print("hello");
+      } else {
+        return Future.error("Server Error !");
+      }
+    } catch (SocketException) {
+      return Future.error("Server Error");
     }
   }
 
@@ -93,19 +97,19 @@ class _RegisterPageState extends State<RegisterPage> {
             ),
           ),
           //
-            SizedBox(
+          SizedBox(
             height: MediaQuery.of(context).size.height * 0.015,
             // width: MediaQuery.of(context).size.width * 0.5,
           ),
-           Padding(
-             padding: const EdgeInsets.only(right:32),
-             child: Row(mainAxisAlignment: MainAxisAlignment.end, children: [
+          Padding(
+            padding: const EdgeInsets.only(right: 32),
+            child: Row(mainAxisAlignment: MainAxisAlignment.end, children: [
               const Text("For Docter,  ", style: TextStyle(fontSize: 18)),
               GestureDetector(
                 onTap: () {
-                 Navigator.push(context, MaterialPageRoute(builder: (context) {
-                      return DocRegister();
-                    }));
+                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    return DocRegister();
+                  }));
                 },
                 child: const Text("Register Here",
                     style: TextStyle(
@@ -113,8 +117,8 @@ class _RegisterPageState extends State<RegisterPage> {
                         fontWeight: FontWeight.bold,
                         fontSize: 18)),
               ),
-          ]),
-           ),
+            ]),
+          ),
           // username textfeild
           SizedBox(
             height: MediaQuery.of(context).size.height * 0.01,
@@ -122,7 +126,7 @@ class _RegisterPageState extends State<RegisterPage> {
           Padding(
             padding: const EdgeInsets.only(left: 32, right: 32, bottom: 5),
             child: TextFormField(
-              controller: _usernameController,
+              controller: usernameController,
               decoration: const InputDecoration(
                 hintText: "Enter username",
                 labelText: "Username",
@@ -135,7 +139,7 @@ class _RegisterPageState extends State<RegisterPage> {
             padding:
                 const EdgeInsets.only(left: 32, top: 4, right: 32, bottom: 5),
             child: TextFormField(
-              controller: _phoneController,
+              controller: phoneController,
               decoration: const InputDecoration(
                 hintText: "Enter phone number",
                 labelText: "Phone number",
@@ -148,7 +152,7 @@ class _RegisterPageState extends State<RegisterPage> {
             padding:
                 const EdgeInsets.only(left: 32, right: 32, top: 4, bottom: 5),
             child: TextFormField(
-              controller: _emailController,
+              controller: emailController,
               cursorColor: Colors.black,
               decoration: const InputDecoration(
                 hintText: "Enter email id",
@@ -167,7 +171,7 @@ class _RegisterPageState extends State<RegisterPage> {
           Padding(
             padding: const EdgeInsets.only(left: 32, right: 32, bottom: 5),
             child: TextFormField(
-              controller: _passwordController,
+              controller: passwordController,
               obscureText: _passWis,
               decoration: InputDecoration(
                 suffixIcon: IconButton(
@@ -193,7 +197,7 @@ class _RegisterPageState extends State<RegisterPage> {
           Padding(
             padding: const EdgeInsets.only(left: 32, right: 32),
             child: TextFormField(
-              controller: _confirmpasswardController,
+              controller: confirmpasswardController,
               obscureText: _passWis,
               decoration: InputDecoration(
                 suffixIcon: IconButton(
@@ -240,9 +244,12 @@ class _RegisterPageState extends State<RegisterPage> {
                 ),
               ),
               onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) {
-                    return startpage();
-                  }));
+                register(
+                    emailController.text.toString(),
+                    passwordController.text.toString(),
+                    confirmpasswardController.text.toString(),
+                    phoneController.text.toString(),
+                    usernameController.text.toString());
               }, //signUp,
             ),
           ),
@@ -256,9 +263,9 @@ class _RegisterPageState extends State<RegisterPage> {
             const Text("You have an account, ", style: TextStyle(fontSize: 18)),
             GestureDetector(
               onTap: () {
-               Navigator.push(context, MaterialPageRoute(builder: (context) {
-                    return Loginpage();
-                  }));
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return Loginpage();
+                }));
               },
               child: const Text("Login Here",
                   style: TextStyle(
