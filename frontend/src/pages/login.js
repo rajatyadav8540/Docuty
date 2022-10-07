@@ -18,6 +18,10 @@ export default function LoginPage(){
                 />
 
                 <Login/>
+<<<<<<< HEAD
+=======
+               
+>>>>>>> dev
                 </div>
         </div>
         </>
