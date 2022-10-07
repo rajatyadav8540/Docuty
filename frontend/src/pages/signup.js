@@ -17,12 +17,7 @@ export default function Sign(){
                 />
                 
                   <Signup/>
-<<<<<<< HEAD
             </div>
-=======
-                  
-                  </div>
->>>>>>> dev
         </div>
         </>
     )

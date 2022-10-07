@@ -1,15 +1,8 @@
-<<<<<<< HEAD
 import { useState, useEffect } from 'react';
 import { loginFields } from '../../constants/formfield';
 import Input from './input';
 import Formaction from './formaction';
 import { useNavigate } from 'react-router-dom';
-=======
-import { useState } from "react";
-import { loginFields } from "../../constants/formfield";
-import Input from "./input";
-import Formaction from "./formaction";
->>>>>>> dev
 
 const fields = loginFields;
 let fieldsState = {};
@@ -35,7 +28,6 @@ export default function Login() {
 		});
 		result = await result.json();
 
-<<<<<<< HEAD
 		if (
 			JSON.stringify(result.username) === '["This field may not be blank."]' ||
 			JSON.stringify(result.password) === '["This field may not be blank."]'
@@ -73,7 +65,6 @@ export default function Login() {
 			</div>
 		</form>
 	);
-=======
   return (
     <form className="mt-8 space-y-6">
       <div className="space-y-px">
@@ -95,5 +86,4 @@ export default function Login() {
       </div>
     </form>
   );
->>>>>>> dev
 }
