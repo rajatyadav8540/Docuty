@@ -6,13 +6,19 @@ export default function Formaction({
   }) {
     return (
       <div>
+        {
+          type==='button'?
         <button
-          onSubmit={handle}
+          onClick={handle}
           action={action}
           className="px-40 mt-8 rounded-full text-black text-xl py-3 bg-green-500 hover:bg-green-400"
         >
           {text}
         </button>
+        :
+        <div>
+          </div>
+  }
       </div>
     );
   }
