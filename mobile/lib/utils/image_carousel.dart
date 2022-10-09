@@ -29,7 +29,7 @@ class _imagecaroselState extends State<imagecarosel> {
 
             },
             itemBuilder:(context, index) => ClipRRect(
-              borderRadius:BorderRadius.all(Radius.circular(12)),
+              borderRadius:const BorderRadius.all(Radius.circular(12)),
               child: Image.asset(
                scroll[index] ,
               ),
@@ -70,8 +70,8 @@ class ffffff extends StatelessWidget {
     height:4,
     width:8,
     decoration:BoxDecoration(
-      color: isActive? Color.fromARGB(255, 25, 221, 48): Colors.grey ,
-      borderRadius: BorderRadius.all(Radius.circular(12)),
+      color: isActive? const Color.fromARGB(255, 25, 221, 48): Colors.grey ,
+      borderRadius: const BorderRadius.all(Radius.circular(12)),
     )
     );
   }

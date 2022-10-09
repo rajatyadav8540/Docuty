@@ -7,7 +7,7 @@ class mum extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(8),
+      padding: const EdgeInsets.all(8),
       child: Center(child:child),
       decoration: BoxDecoration(color:Colors.grey[300],
       borderRadius: BorderRadius.circular(12),
@@ -16,10 +16,10 @@ class mum extends StatelessWidget {
                    BoxShadow(
                     color:Colors.grey.shade500,  //fromARGB(252, 203, 190, 190),
                     blurRadius: 15,
-                    offset:Offset(5, 5)
+                    offset:const Offset(5, 5)
                    ),
                // light side
-                   BoxShadow(
+                   const BoxShadow(
                     color:Colors.white,
                     blurRadius: 15,
                     offset:Offset(-5,-5)

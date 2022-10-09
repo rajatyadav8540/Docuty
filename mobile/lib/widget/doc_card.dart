@@ -1,12 +1,11 @@
 import 'package:doc2/widget/numorphic.dart';
 import 'package:flutter/material.dart';
 
-import '../pages/doc_intro.dart';
 
 class DocCard extends StatelessWidget {
   final String _name;
   final Color _color;
-  DocCard(this._name, this._color);
+  const DocCard(this._name, this._color);
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -39,13 +38,13 @@ class HomeButton extends StatelessWidget {
   final double _left, _top;
   final String _path;
   //HomeButton({Key? key,required Double_left,required Double_right,required Double_buttom,required Double_top}) : super(key: key);
-  HomeButton(this._left, this._top, this._path);
+  const HomeButton(this._left, this._top, this._path);
   @override
   Widget build(BuildContext context) {
     return Positioned(
         top: _top,
         left: _left,
-        child: Container(
+        child: SizedBox(
           height: 140,
           width: MediaQuery.of(context).size.width * 0.42,
           child: mum(
@@ -72,13 +71,13 @@ class HomeButton1 extends StatelessWidget {
   final double _right, _top;
   final String _path;
   //HomeButton({Key? key,required Double_left,required Double_right,required Double_buttom,required Double_top}) : super(key: key);
-  HomeButton1(this._right, this._top, this._path);
+  const HomeButton1(this._right, this._top, this._path);
   @override
   Widget build(BuildContext context) {
     return Positioned(
         top: _top,
         right: _right,
-        child: Container(
+        child: SizedBox(
           height: 140,
           width: MediaQuery.of(context).size.width * 0.42,
           child: mum(
@@ -104,7 +103,7 @@ class HomeButton1 extends StatelessWidget {
 class Htr1p extends StatelessWidget {
   final double _top, _left;
   final child;
-  Htr1p(this._top, this._left, this.child);
+  const Htr1p(this._top, this._left, this.child);
   @override
   Widget build(BuildContext context) {
     return Positioned(
@@ -124,7 +123,7 @@ class Htr2p extends StatelessWidget {
   final double _top, _left;
   final String _path;
   final child;
-  Htr2p(this._top, this._left, this.child, this._path);
+  const Htr2p(this._top, this._left, this.child, this._path);
   @override
   Widget build(BuildContext context) {
     return Positioned(
@@ -159,7 +158,7 @@ class Htr2p extends StatelessWidget {
 class Htr3p extends StatelessWidget {
   final double _top, _right;
   final child;
-  Htr3p(this._top, this._right, this.child);
+  const Htr3p(this._top, this._right, this.child);
   @override
   Widget build(BuildContext context) {
     return Positioned(
@@ -179,7 +178,7 @@ class Htr4p extends StatelessWidget {
   final double _top, _right;
   final String _path;
   final child;
-  Htr4p(this._top, this._right, this.child, this._path);
+  const Htr4p(this._top, this._right, this.child, this._path);
   @override
   Widget build(BuildContext context) {
     return Positioned(

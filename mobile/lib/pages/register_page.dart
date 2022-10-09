@@ -1,15 +1,14 @@
-import 'dart:async';
 import 'dart:convert';
+import 'dart:math';
 
-import 'package:doc2/pages/login_page.dart';
-import 'package:doc2/pages/start.dart';
-import 'package:doc2/pages/user_res.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
-import 'package:http/http.dart' as http;
-import '../services/auth.dart';
-import 'home_page.dart';
+
+import '../res/components/round_button.dart';
+import '../utils/routes/routes_name.dart';
+import '../utils/utils.dart';
+import '../view_model/auth_view_model.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({
@@ -21,45 +20,70 @@ class RegisterPage extends StatefulWidget {
 }
 
 class _RegisterPageState extends State<RegisterPage> {
-  //text controllers
-  //final formkey =GlobalKey<FormState>();
+  ValueNotifier<bool> _obsecurePassword = ValueNotifier<bool>(true);
   bool _passWis = true;
-  TextEditingController emailController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
-  TextEditingController confirmpasswardController = TextEditingController();
-  TextEditingController usernameController = TextEditingController();
-  TextEditingController phoneController = TextEditingController();
+  TextEditingController _emailController = TextEditingController();
+  TextEditingController _passwordController = TextEditingController();
+  TextEditingController _confirmpasswardController = TextEditingController();
+  TextEditingController _usernameController = TextEditingController();
+  TextEditingController _phoneController = TextEditingController();
 
-  void register(
-      String email, password, confirmpassword, phone, username) async {
+
+   Future<void> login(String username, password, email) async {
     try {
-      Response response = await post(
-        Uri.parse("http://127.0.0.1:8000/api/register"),
-        body: {//jsonEncode();
-          'email': email,
-          'password': password,
-          'username': username,
-          /* 'confirmpassword': confirmpassword,
-          'phone': phone*/
-        },
-       /*  headers:{
-          "Content-Type":"application/json; charset=UTF-8",
-        }*/
+      Response response =
+          await post(Uri.parse('http://127.0.0.1:8000/api/register/'),
+         
+           body: {
+        'username': username,
+        'email': email,
+        'password': password,
+      },
+    headers:{"Accept":"Application/json"},
       );
       if (response.statusCode == 200) {
-        var data = jsonDecode(response.body.toString());
-        print(data);
-        print("hello");
+       final apiResponJson = json.decode(response.body);
+        print('Success Load Data Json ($apiResponJson)');
+        return apiResponJson;
+        print('account sucessfull');
       } else {
-        return Future.error("Server Error !");
+        print('failed');
       }
-    } catch (SocketException) {
-      return Future.error("Server Error");
+    } catch (e) {
+      print(e.toString());
+      return null;
     }
   }
 
+
+  FocusNode usernameFocusNode = FocusNode();
+  FocusNode emailFocusNode = FocusNode();
+  FocusNode passwordFocusNode = FocusNode();
+  FocusNode confirmpasswordFocusNode = FocusNode();
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+
+    _usernameController.dispose();
+    _emailController.dispose();
+    _passwordController.dispose();
+    _confirmpasswardController.dispose();
+
+    emailFocusNode.dispose();
+    passwordFocusNode.dispose();
+    confirmpasswordFocusNode.dispose();
+    usernameFocusNode.dispose();
+
+    _obsecurePassword.dispose();
+  }
+
+ 
+
   @override
   Widget build(BuildContext context) {
+    //final authViewMode = Provider.of<AuthViewModel>(context);
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
@@ -107,9 +131,7 @@ class _RegisterPageState extends State<RegisterPage> {
               const Text("For Docter,  ", style: TextStyle(fontSize: 18)),
               GestureDetector(
                 onTap: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) {
-                    return DocRegister();
-                  }));
+                  Navigator.pushNamed(context, RoutesName.DocRegisterpage);
                 },
                 child: const Text("Register Here",
                     style: TextStyle(
@@ -126,11 +148,17 @@ class _RegisterPageState extends State<RegisterPage> {
           Padding(
             padding: const EdgeInsets.only(left: 32, right: 32, bottom: 5),
             child: TextFormField(
-              controller: usernameController,
+              controller: _usernameController,
+              focusNode: usernameFocusNode,
               decoration: const InputDecoration(
+                prefixIcon: Icon(Icons.person_outline_sharp),
                 hintText: "Enter username",
                 labelText: "Username",
               ),
+              onFieldSubmitted: (valu) {
+                Utils.fieldFocusChange(
+                    context, usernameFocusNode, emailFocusNode);
+              },
             ),
           ),
           // phone number
@@ -139,8 +167,9 @@ class _RegisterPageState extends State<RegisterPage> {
             padding:
                 const EdgeInsets.only(left: 32, top: 4, right: 32, bottom: 5),
             child: TextFormField(
-              controller: phoneController,
+              controller: _phoneController,
               decoration: const InputDecoration(
+                prefixIcon: const Icon(Icons.phone_android_outlined),
                 hintText: "Enter phone number",
                 labelText: "Phone number",
               ),
@@ -152,13 +181,20 @@ class _RegisterPageState extends State<RegisterPage> {
             padding:
                 const EdgeInsets.only(left: 32, right: 32, top: 4, bottom: 5),
             child: TextFormField(
-              controller: emailController,
+              controller: _emailController,
               cursorColor: Colors.black,
+              keyboardType: TextInputType.emailAddress,
+              focusNode: emailFocusNode,
               decoration: const InputDecoration(
-                hintText: "Enter email id",
-                labelText: "Email id",
-                // iconColor:Color.fromARGB(255, 96, 96, 197),
-              ),
+                  hintText: "Enter email id",
+                  labelText: "Email id",
+                  prefixIcon: Icon(Icons.alternate_email)
+                  // iconColor:Color.fromARGB(255, 96, 96, 197),
+                  ),
+              onFieldSubmitted: (valu) {
+                Utils.fieldFocusChange(
+                    context, emailFocusNode, passwordFocusNode);
+              },
               autovalidateMode: AutovalidateMode.onUserInteraction,
               validator: (email) =>
                   email != null && !EmailValidator.validate(email)
@@ -168,38 +204,46 @@ class _RegisterPageState extends State<RegisterPage> {
           ),
 
           //passward textfeild
-          Padding(
-            padding: const EdgeInsets.only(left: 32, right: 32, bottom: 5),
-            child: TextFormField(
-              controller: passwordController,
-              obscureText: _passWis,
-              decoration: InputDecoration(
-                suffixIcon: IconButton(
-                  onPressed: () {
-                    setState(() {
-                      _passWis = !_passWis;
-                    });
-                  },
-                  icon: _passWis
-                      ? Icon(Icons.visibility_off)
-                      : Icon(Icons.visibility),
-                ),
-                hintText: "Enter passward",
-                labelText: "passward",
-              ),
-              autovalidateMode: AutovalidateMode.onUserInteraction,
-              validator: (value) => value != null && value.length < 6
-                  ? "Enter min. 6 characters"
-                  : null,
-            ),
-          ),
+          ValueListenableBuilder(
+              valueListenable: _obsecurePassword,
+              builder: (context, value, child) {
+                return Padding(
+                  padding:
+                      const EdgeInsets.only(left: 32, right: 32, bottom: 5),
+                  child: TextFormField(
+                    controller: _passwordController,
+                    obscureText: _obsecurePassword.value,
+                    focusNode: passwordFocusNode,
+                    obscuringCharacter: "*",
+                    decoration: InputDecoration(
+                      prefixIcon: const Icon(Icons.lock_open_rounded),
+                      suffixIcon: InkWell(
+                          onTap: () {
+                            _obsecurePassword.value = !_obsecurePassword.value;
+                          },
+                          child: Icon(_obsecurePassword.value
+                              ? Icons.visibility_off
+                              : Icons.visibility)),
+                      hintText: "Enter passward",
+                      labelText: "passward",
+                    ),
+                    autovalidateMode: AutovalidateMode.onUserInteraction,
+                    validator: (value) => value != null && value.length < 6
+                        ? "Enter min. 6 characters"
+                        : null,
+                  ),
+                );
+              }),
           // confirm passward
           Padding(
             padding: const EdgeInsets.only(left: 32, right: 32),
             child: TextFormField(
-              controller: confirmpasswardController,
-              obscureText: _passWis,
+              controller: _confirmpasswardController,
+              obscureText: _obsecurePassword.value,
+              focusNode: confirmpasswordFocusNode,
+              obscuringCharacter: "*",
               decoration: InputDecoration(
+                prefixIcon: const Icon(Icons.lock_open_rounded),
                 suffixIcon: IconButton(
                   onPressed: () {
                     setState(() {
@@ -207,8 +251,8 @@ class _RegisterPageState extends State<RegisterPage> {
                     });
                   },
                   icon: _passWis
-                      ? Icon(Icons.visibility_off)
-                      : Icon(Icons.visibility),
+                      ? const Icon(Icons.visibility_off)
+                      : const Icon(Icons.visibility),
                 ),
                 hintText: "Confirm Passward",
                 labelText: "Confirm passward",
@@ -225,32 +269,33 @@ class _RegisterPageState extends State<RegisterPage> {
           ),
           Padding(
             padding: const EdgeInsets.only(left: 32, right: 32),
-            child: ElevatedButton.icon(
-              style: ElevatedButton.styleFrom(
-                primary: const Color.fromARGB(255, 25, 221, 48),
-                minimumSize: const Size.fromHeight(45),
-              ),
-              icon: const Icon(
-                Icons.lock_open,
-                size: 32,
-                color: Colors.white,
-              ),
-              label: const Text(
-                "Sign Up",
-                style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
-                ),
-              ),
-              onPressed: () {
-                register(
-                    emailController.text.toString(),
-                    passwordController.text.toString(),
-                    confirmpasswardController.text.toString(),
-                    phoneController.text.toString(),
-                    usernameController.text.toString());
-              }, //signUp,
+            child: RoundButton(
+              title: 'Sign Up',
+              // loading: authViewMode.signUpLoading,
+              onPress: () {
+                if (_usernameController.text.isEmpty) {
+                  Utils.flushBarErrorMessage('Please enter username', context);
+                } else if (_emailController.text.isEmpty) {
+                  Utils.flushBarErrorMessage('Please enter email', context);
+                } else if (_passwordController.text.isEmpty) {
+                  Utils.flushBarErrorMessage('Please enter password', context);
+                } else if (_passwordController.text.length < 6) {
+                  Utils.flushBarErrorMessage(
+                      'Please enter 6 digit password', context);
+                } else if (_passwordController.text.toString() !=
+                    _confirmpasswardController.text.toString()) {
+                  Utils.flushBarErrorMessage(
+                      'Please enter correct password', context);
+                } else {
+                  login(
+                      _usernameController.text.toString(),
+                      _passwordController.text.toString(),
+                      _emailController.text.toString());
+
+                  //authViewMode.signUpApi(data, context);
+                  //print('api hit');
+                }
+              },
             ),
           ),
 
@@ -263,9 +308,7 @@ class _RegisterPageState extends State<RegisterPage> {
             const Text("You have an account, ", style: TextStyle(fontSize: 18)),
             GestureDetector(
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return Loginpage();
-                }));
+                Navigator.pushNamed(context, RoutesName.loginpage);
               },
               child: const Text("Login Here",
                   style: TextStyle(

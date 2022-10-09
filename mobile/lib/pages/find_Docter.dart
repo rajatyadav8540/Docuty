@@ -8,7 +8,7 @@ class FindDoctors extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-       child:Center(
+       child:const Center(
        child:Text("FindDoctors",style: TextStyle(
          fontWeight: FontWeight.bold,fontSize: 30
        ),

@@ -1,17 +1,12 @@
 //import 'dart:html';
 
-import 'package:doc2/pages/login_page.dart';
 import 'package:doc2/widget/drawer.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/painting.dart';
-import 'package:flutter/rendering.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 import '../utils/image_carousel.dart';
 import '../widget/doc_card.dart';
 import '../widget/location.dart';
-import '../widget/numorphic.dart';
 import 'doc_intro.dart';
  
  var scaffoldkey = GlobalKey<ScaffoldState>();
@@ -34,7 +29,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       key :scaffoldkey,
-         drawer: DrawerScreen(),
+         drawer: const DrawerScreen(),
         
         appBar: AppBar(
           backgroundColor: Colors.white,
@@ -52,8 +47,8 @@ class _HomeState extends State<Home> {
                   //icon: SvgPicture.asset("assets\icons\mu.svg",color: Colors.black12),
                   ),
             ),
-          Padding(
-              padding: const EdgeInsets.only(
+          const Padding(
+              padding: EdgeInsets.only(
                 top: 14,
                 bottom: 7,
               ),
@@ -73,9 +68,9 @@ class _HomeState extends State<Home> {
               width: MediaQuery.of(context).size.width * 0.45,
               margin:
                   const EdgeInsets.only(left: 10, top: 7, right: 10, bottom: 7),
-              padding: EdgeInsets.only(left: 24, bottom: 5),
+              padding: const EdgeInsets.only(left: 24, bottom: 5),
               decoration: BoxDecoration(
-                color: Color.fromARGB(27, 70, 77, 67),
+                color: const Color.fromARGB(27, 70, 77, 67),
                 borderRadius: BorderRadius.circular(30),
                 /* boxShadow: [BoxShadow(
           offset: Offset(0, 10),
@@ -83,7 +78,7 @@ class _HomeState extends State<Home> {
           color:Colors.black.withOpacity(0.23),
          ),],*/
               ),
-              child: TextField(
+              child: const TextField(
                 decoration: InputDecoration(
                   hintText: "Search",
                   hintStyle: TextStyle(color: Colors.black54),
@@ -112,7 +107,7 @@ class _HomeState extends State<Home> {
           slivers: [
             SliverPadding(
                 padding:
-                    EdgeInsets.only(left: 25, right: 25, top: 9, bottom: 9),
+                    const EdgeInsets.only(left: 25, right: 25, top: 9, bottom: 9),
                 sliver: SliverToBoxAdapter(
                   child: Row(
                     children: [
@@ -120,7 +115,7 @@ class _HomeState extends State<Home> {
                         height: MediaQuery.of(context).size.height * 0.2,
                         width: MediaQuery.of(context).size.width * 0.423,
                         child: ClipRRect(
-                          borderRadius: BorderRadius.only(
+                          borderRadius: const BorderRadius.only(
                             topLeft: Radius.circular(60),
                             bottomLeft: Radius.circular(60),
                           ),
@@ -134,11 +129,11 @@ class _HomeState extends State<Home> {
                         // height: MediaQuery.of(context).size.height * 0.015,
                         width: MediaQuery.of(context).size.width * 0.025,
                       ),
-                      Container(
+                      SizedBox(
                         height: MediaQuery.of(context).size.height * 0.2,
                         width: MediaQuery.of(context).size.width * 0.423,
                         child: ClipRRect(
-                          borderRadius: BorderRadius.only(
+                          borderRadius: const BorderRadius.only(
                             topRight: Radius.circular(60),
                             bottomRight: Radius.circular(60),
                           ),
@@ -171,7 +166,7 @@ class _HomeState extends State<Home> {
               sliver: SliverToBoxAdapter(child: imagecarosel()),
             ),
             SliverPadding(
-              padding: EdgeInsets.only(
+              padding: const EdgeInsets.only(
                 left: 25,
                 right: 25,
               ),
@@ -259,7 +254,7 @@ class _HomeState extends State<Home> {
               )),
             ),*/
             SliverPadding(
-              padding: EdgeInsets.only(
+              padding: const EdgeInsets.only(
                 left: 25,
                 right: 25,
               ),
@@ -271,7 +266,7 @@ class _HomeState extends State<Home> {
                           borderRadius: BorderRadius.circular(30)))),
             ),
             SliverPadding(
-              padding: EdgeInsets.only(
+              padding: const EdgeInsets.only(
                 left: 25,
                 right: 25,
               ),
@@ -282,7 +277,7 @@ class _HomeState extends State<Home> {
                 ),
               ),
             ),
-            SliverPadding(
+            const SliverPadding(
               padding: EdgeInsets.only(left: 25, top: 7),
               sliver: SliverToBoxAdapter(
                   child: Text(
@@ -295,7 +290,7 @@ class _HomeState extends State<Home> {
               )),
             ),
             SliverPadding(
-              padding: EdgeInsets.only(
+              padding: const EdgeInsets.only(
                 left: 25,
                 right: 25,
               ),
@@ -306,7 +301,7 @@ class _HomeState extends State<Home> {
                 ),
               ),
             ),
-            SliverPadding(
+            const SliverPadding(
               padding: EdgeInsets.only(left: 25),
               sliver: SliverToBoxAdapter(
                   child: Text(
@@ -319,7 +314,7 @@ class _HomeState extends State<Home> {
               )),
             ),
             SliverPadding(
-              padding: EdgeInsets.only(
+              padding: const EdgeInsets.only(
                 left: 25,
                 right: 25,
               ),
@@ -331,7 +326,7 @@ class _HomeState extends State<Home> {
               ),
             ),
             SliverPadding(
-              padding: EdgeInsets.only(
+              padding: const EdgeInsets.only(
                 left: 0,
                 right: 0,
               ),
@@ -342,13 +337,13 @@ class _HomeState extends State<Home> {
                       decoration: BoxDecoration(
                           color: Colors.grey[300],
                           borderRadius: BorderRadius.circular(10)),
-                      child: Stack(children: [
+                      child: Stack(children: const [
                         //left top
                         Htr1p(
                             80,
                             25,
                             DocCard("name",
-                                const Color.fromARGB(255, 25, 221, 48))),
+                                Color.fromARGB(255, 25, 221, 48))),
                         Htr2p(30, 38, Docintro(), "assets/images/doc.png"),
 
                         // right side top
@@ -356,7 +351,7 @@ class _HomeState extends State<Home> {
                             80,
                             25,
                             DocCard("name",
-                                const Color.fromARGB(255, 25, 221, 48))),
+                                Color.fromARGB(255, 25, 221, 48))),
                         Htr4p(30, 38, Docintro(), "assets/images/doc.png"),
 
                         // left bottom
@@ -364,7 +359,7 @@ class _HomeState extends State<Home> {
                             300,
                             25,
                             DocCard("name",
-                                const Color.fromARGB(255, 25, 221, 48))),
+                                Color.fromARGB(255, 25, 221, 48))),
                         Htr2p(250, 38, Docintro(), "assets/images/doc.png"),
 
                         // right bottom
@@ -372,15 +367,15 @@ class _HomeState extends State<Home> {
                             300,
                             25,
                             DocCard("name",
-                                const Color.fromARGB(255, 25, 221, 48))),
+                                Color.fromARGB(255, 25, 221, 48))),
                         Htr4p(250, 38, Docintro(), "assets/images/doc.png"),
                       ]))),
             ),
             SliverPadding(
-              padding: EdgeInsets.only(left: 25, right: 25, top: 7),
+              padding: const EdgeInsets.only(left: 25, right: 25, top: 7),
               sliver: SliverToBoxAdapter(
                   child: Column(
-                children: [
+                children: const [
                   Text(
                     "Our services ",
                     style: TextStyle(
@@ -401,7 +396,7 @@ class _HomeState extends State<Home> {
               )),
             ),
             SliverPadding(
-                padding: EdgeInsets.only(right: 25, top: 16, bottom: 10),
+                padding: const EdgeInsets.only(right: 25, top: 16, bottom: 10),
                 sliver: SliverToBoxAdapter(
                   child: Container(
                       height: 120,
@@ -428,7 +423,7 @@ class _HomeState extends State<Home> {
                                                 images.keys.elementAt(index)),
                                             fit: BoxFit.cover)),
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     height: 8,
                                   ),
                                   Container(
@@ -441,7 +436,7 @@ class _HomeState extends State<Home> {
                           })),
                 )),
             SliverPadding(
-              padding: EdgeInsets.only(
+              padding: const EdgeInsets.only(
                 left: 60,
                 right: 60,
               ),
@@ -449,11 +444,11 @@ class _HomeState extends State<Home> {
                   child: Container(
                       height: MediaQuery.of(context).size.height * 0.003,
                       decoration: BoxDecoration(
-                          color: Color.fromARGB(255, 25, 221, 48),
+                          color: const Color.fromARGB(255, 25, 221, 48),
                           borderRadius: BorderRadius.circular(30)))),
             ),
             SliverPadding(
-              padding: EdgeInsets.only(
+              padding: const EdgeInsets.only(
                 left: 0,
                 right: 0,
               ),
@@ -464,7 +459,7 @@ class _HomeState extends State<Home> {
                       decoration: BoxDecoration(
                           color: Colors.grey[300],
                           borderRadius: BorderRadius.circular(10)),
-                      child: Stack(children: [
+                      child: Stack(children: const [
                         //left top
                         HomeButton(25, 30, "assets/images/motorbike.png"),
 
@@ -479,7 +474,7 @@ class _HomeState extends State<Home> {
                       ]))),
             ),
             SliverPadding(
-              padding: EdgeInsets.only(
+              padding: const EdgeInsets.only(
                 left: 60,
                 right: 60,
               ),
@@ -487,7 +482,7 @@ class _HomeState extends State<Home> {
                   child: Container(
                       height: MediaQuery.of(context).size.height * 0.003,
                       decoration: BoxDecoration(
-                          color: Color.fromARGB(255, 25, 221, 48),
+                          color: const Color.fromARGB(255, 25, 221, 48),
                           borderRadius: BorderRadius.circular(30)))),
             ),
           ],

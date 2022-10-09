@@ -2,7 +2,7 @@ import 'package:email_validator/email_validator.dart';
 import "package:flutter/material.dart";
 
 class ForgotPasswordPage extends StatefulWidget {
-  ForgotPasswordPage({Key? key}) : super(key: key);
+  const ForgotPasswordPage({Key? key}) : super(key: key);
 
   @override
   State<ForgotPasswordPage> createState() => _ForgotPasswordPageState();
@@ -27,8 +27,8 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
         body: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Padding(
-              padding: const EdgeInsets.only(left: 32, right: 32, bottom: 5),
+            const Padding(
+              padding: EdgeInsets.only(left: 32, right: 32, bottom: 5),
               child: Text(
                   "Enter your Email and We will send you a passward reset link"),
             ),

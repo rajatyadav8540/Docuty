@@ -1,5 +1,27 @@
 {
    "hub_apps": [ {
+      "description": "Explore new features and web content daily to earn valuable rewards",
+      "disabled|auth:aad": true,
+      "flights": [ "msEdgeNurturingHub" ],
+      "icon": {
+         "raster_icon": {
+            "dark_mode": "https://edgeassetservice.azureedge.net/assets/edge_hub_apps_activity_hub_dark.png/0.0.7/asset",
+            "high_contrast": "https://edgeassetservice.azureedge.net/assets/edge_hub_apps_activity_hub_hc.png/0.0.7/asset",
+            "light_mode": "https://edgeassetservice.azureedge.net/assets/edge_hub_apps_activity_hub_light.png/0.0.7/asset"
+         }
+      },
+      "id": "d304175e-bbd4-4b66-8839-9627e56f391f",
+      "name": "Action center",
+      "notifications": {
+         "enabled": true
+      },
+      "on_by_default|flight:msEdgeNurturingHubOnByDefault": true,
+      "target": {
+         "url": "edge://rewards/",
+         "url|flight:msHubAppsInEdgeSidePaneFramework": "edge://rewards/?sharedHeader=1"
+      },
+      "version": "0.0.7"
+   }, {
       "capabilities": {
          "deprecated_hide_header": true
       },
@@ -163,9 +185,9 @@
       "flights|minimum_chrome_version:104.0.1293.33": [  ],
       "icon": {
          "raster_icon": {
-            "dark_mode": "https://edgeassetservice.azureedge.net/assets/edge_hub_apps_outlook.png/0.0.11/asset",
-            "high_contrast": "https://edgeassetservice.azureedge.net/assets/edge_hub_apps_fluent_outlook_hc.png/0.0.11/asset",
-            "light_mode": "https://edgeassetservice.azureedge.net/assets/edge_hub_apps_outlook.png/0.0.11/asset"
+            "dark_mode": "https://edgeassetservice.azureedge.net/assets/edge_hub_apps_outlook.png/0.0.12/asset",
+            "high_contrast": "https://edgeassetservice.azureedge.net/assets/edge_hub_apps_fluent_outlook_hc.png/0.0.12/asset",
+            "light_mode": "https://edgeassetservice.azureedge.net/assets/edge_hub_apps_outlook.png/0.0.12/asset"
          }
       },
       "id": "8682d0fa-50b3-4ece-aa5b-e0b33f9919e2",
@@ -182,11 +204,11 @@
       "on_by_default": true,
       "remember_last_path": true,
       "target": {
-         "url": "https://outlook.live.com/mail?isExtension=true",
+         "url": "https://outlook.live.com/mail?isExtension=true&nlp=1",
          "url|auth:aad": "https://outlook.office.com/mail?isExtension=true"
       },
       "trusted_domains": [ "live.com", "office.com", "microsoftonline.com", "microsoft.com", "office365.com" ],
-      "version": "0.0.11"
+      "version": "0.0.12"
    }, {
       "capabilities": {
          "deprecated_hide_header": true
@@ -229,25 +251,6 @@
          "url|flight:msHubAppsInEdgeSidePaneFramework": "edge://etree/?sharedHeader=1"
       },
       "version": "0.0.8"
-   }, {
-      "description": "Explore new features and web content daily to earn valuable rewards",
-      "disabled|auth:aad": true,
-      "flights": [ "msEdgeNurturingHub" ],
-      "icon": {
-         "raster_icon": {
-            "dark_mode": "https://edgeassetservice.azureedge.net/assets/edge_hub_apps_activity_hub_dark.png/0.0.4/asset",
-            "high_contrast": "https://edgeassetservice.azureedge.net/assets/edge_hub_apps_activity_hub_hc.png/0.0.4/asset",
-            "light_mode": "https://edgeassetservice.azureedge.net/assets/edge_hub_apps_activity_hub_light.png/0.0.4/asset"
-         }
-      },
-      "id": "d304175e-bbd4-4b66-8839-9627e56f391f",
-      "name": "Activity Hub",
-      "on_by_default|flight:msEdgeNurturingHubOnByDefault": true,
-      "target": {
-         "url": "edge://rewards/",
-         "url|flight:msHubAppsInEdgeSidePaneFramework": "edge://rewards/?sharedHeader=1"
-      },
-      "version": "0.0.4"
    }, {
       "description": "Take notes as you browse the web",
       "flights": [ "msEdgeHubAppOneNoteMemory" ],

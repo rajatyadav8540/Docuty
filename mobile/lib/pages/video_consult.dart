@@ -1,4 +1,3 @@
-import 'package:cupertino_icons/cupertino_icons.dart';
 import 'package:flutter/cupertino.dart';
 
 class  VideoConsult extends StatelessWidget {
@@ -7,7 +6,7 @@ class  VideoConsult extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-       child:Center(
+       child:const Center(
        child:Text(" VideoConsult",style: TextStyle(
          fontWeight: FontWeight.bold,fontSize: 30
        ),

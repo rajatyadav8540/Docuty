@@ -8,7 +8,7 @@ import 'lab_test.dart';
 import 'video_consult.dart';
 
 class startpage extends StatefulWidget {
-  startpage({Key? key}) : super(key: key);
+  const startpage({Key? key}) : super(key: key);
 
   @override
   State<startpage> createState() => _startpageState();
@@ -16,11 +16,11 @@ class startpage extends StatefulWidget {
 
 class _startpageState extends State<startpage> {
   List Pages = [
-    Home(),
-    FindDoctors(),
-    VideoConsult(),
-    Medicines(),
-    LabTest(),
+    const Home(),
+    const FindDoctors(),
+    const VideoConsult(),
+    const Medicines(),
+    const LabTest(),
   ];
   int currentIndex = 0;
   void onTap(int index) {
@@ -43,7 +43,7 @@ class _startpageState extends State<startpage> {
           showUnselectedLabels: false,
           showSelectedLabels: false,
           elevation: 0,
-          items: [
+          items: const [
             BottomNavigationBarItem(
                 label: ("Home"), icon: Icon(CupertinoIcons.home)),
             BottomNavigationBarItem(

@@ -1,12 +1,9 @@
 import 'package:doc2/pages/start.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../widget/doc_card.dart';
-import '../widget/numorphic.dart';
 
 class Docintro extends StatefulWidget {
-  Docintro({Key? key}) : super(key: key);
+  const Docintro({Key? key}) : super(key: key);
 
   @override
   State<Docintro> createState() => _DocintroState();
@@ -37,9 +34,9 @@ class _DocintroState extends State<Docintro> {
                          children: [
                            IconButton(onPressed: (){
                              Navigator.push(context, MaterialPageRoute(builder: (context) {
-                    return startpage();
+                    return const startpage();
                   }));
-                           },  icon: Icon(Icons.edit_note_rounded,size: 35,color:Color.fromARGB(255, 35, 33, 33),)),
+                           },  icon: const Icon(Icons.edit_note_rounded,size: 35,color:Color.fromARGB(255, 35, 33, 33),)),
                          ],
                        ),
                      ),
@@ -51,9 +48,9 @@ class _DocintroState extends State<Docintro> {
                          children: [
                            IconButton(onPressed: (){
                              Navigator.push(context, MaterialPageRoute(builder: (context) {
-                    return startpage();
+                    return const startpage();
                   }));
-                           },  icon: Icon(Icons.arrow_back_ios,color: Color.fromARGB(255, 35, 33, 33),)),
+                           },  icon: const Icon(Icons.arrow_back_ios,color: Color.fromARGB(255, 35, 33, 33),)),
                          ],
                        ),
                      ),
@@ -76,8 +73,8 @@ class _DocintroState extends State<Docintro> {
           height: MediaQuery.of(context).size.height * 0.4,
           width: double.maxFinite,
           child: Column(
-            children: [
-              const Padding(
+            children: const [
+              Padding(
                 padding: EdgeInsets.only(
                   left: 20,
                   right: 200,
@@ -93,7 +90,7 @@ class _DocintroState extends State<Docintro> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(top: 10, left: 20, right: 270),
+                padding: EdgeInsets.only(top: 10, left: 20, right: 270),
                 child: Text(
                   "Cardiology",
                   style: TextStyle(
@@ -169,7 +166,7 @@ class _DocintroState extends State<Docintro> {
               child: CustomScrollView(
                 slivers: [
                   SliverPadding(
-                      padding: EdgeInsets.only(left: 25, top: 15),
+                      padding: const EdgeInsets.only(left: 25, top: 15),
                       sliver: SliverToBoxAdapter(
                         child: Row(
                           children: [
@@ -204,7 +201,7 @@ class _DocintroState extends State<Docintro> {
                         ),
                       )),
                       
-                  SliverPadding(
+                  const SliverPadding(
                       padding: EdgeInsets.only(
                         left: 25,
                        
@@ -220,8 +217,8 @@ class _DocintroState extends State<Docintro> {
                           ),
                         ),
                       )),
-                  SliverPadding(
-                      padding: const EdgeInsets.only(left: 20, top:13,right: 20),
+                  const SliverPadding(
+                      padding: EdgeInsets.only(left: 20, top:13,right: 20),
                       sliver: SliverToBoxAdapter(
                         child: Text(
                           "private online consaxam,m s,cmsajc  xakjb asxxakjxjx awejfed scccjs ssjkdbsa csjbcjkcas c cssjkcs,m sca;s csc sicsm, c c,cn feklffhdc;vpiiege  ultation with veified docters in all specialists.vhjZXV bjcaj nbm csajac wdkhqs d dd dwwmhq",
@@ -233,7 +230,7 @@ class _DocintroState extends State<Docintro> {
                         ),
                       )),
                        SliverPadding(
-              padding: EdgeInsets.only(
+              padding: const EdgeInsets.only(
                 left: 25,top:8,
                 right: 25,
               ),
@@ -244,7 +241,7 @@ class _DocintroState extends State<Docintro> {
                           color: Colors.grey,
                           borderRadius: BorderRadius.circular(30)))),
             ),
-                  SliverPadding(
+                  const SliverPadding(
                       padding: EdgeInsets.only(
                         left: 25,
                         right: 220,top:15,
@@ -259,7 +256,7 @@ class _DocintroState extends State<Docintro> {
                           ),
                         ),
                       )),
-                  SliverPadding(
+                  const SliverPadding(
                       padding: EdgeInsets.only(
                         left: 25,
                         right: 150,top:15
@@ -276,7 +273,7 @@ class _DocintroState extends State<Docintro> {
                       )),
                     
                   SliverPadding(
-                      padding: EdgeInsets.only(left: 0, right: 0),
+                      padding: const EdgeInsets.only(left: 0, right: 0),
                       sliver: SliverToBoxAdapter(
                         child: Row(children: [
                           Padding(
@@ -310,7 +307,7 @@ class _DocintroState extends State<Docintro> {
                                   fontSize: 19,
                                 ),
                               ),
-                              backgroundColor: Color.fromARGB(255, 25, 221, 48),
+                              backgroundColor: const Color.fromARGB(255, 25, 221, 48),
                               foregroundColor: Colors.black,
                             ),
                           ),

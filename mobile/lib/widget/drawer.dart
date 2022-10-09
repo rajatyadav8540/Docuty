@@ -1,7 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../pages/start.dart';
 
 
 class DrawerScreen extends StatelessWidget {
