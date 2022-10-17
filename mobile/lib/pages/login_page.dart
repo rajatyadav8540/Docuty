@@ -1,6 +1,6 @@
 import 'package:doc2/pages/home_page.dart';
 import "package:flutter/material.dart";
-
+import 'package:provider/provider.dart';
 import '../res/components/round_button.dart';
 import '../utils/routes/routes_name.dart';
 import '../utils/utils.dart';
@@ -47,7 +47,7 @@ class _LoginpageState extends State<Loginpage> {
 
   @override
   Widget build(BuildContext context) {
-      //final authViewMode = Provider.of<AuthViewModel>(context);
+      final authViewMode = Provider.of<AuthViewModel>(context);
     return Scaffold(
       backgroundColor: Colors.grey[300],
       body: SingleChildScrollView(
@@ -183,7 +183,7 @@ class _LoginpageState extends State<Loginpage> {
           padding: const EdgeInsets.only(left: 32, right: 32),
           child:  RoundButton(
               title: 'Login',
-              //loading: authViewMode.loading,
+              loading: authViewMode.loading,
               onPress: (){
                 if(_usernameController.text.isEmpty){
 
@@ -207,7 +207,7 @@ class _LoginpageState extends State<Loginpage> {
                   //   'password' : 'cityslicka',
                   // };
 
-                  //authViewMode.loginApi(data , context);
+                  authViewMode.loginApi(data , context);
                   //print('api hit');
               
                 }

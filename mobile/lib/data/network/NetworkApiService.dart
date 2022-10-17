@@ -1,5 +1,5 @@
 
-/*import 'dart:convert';
+import 'dart:convert';
 import 'dart:io';
 import 'dart:math';
 import 'package:http/http.dart';
@@ -47,7 +47,8 @@ class NetworkApiService extends BaseApiServices {
 
       throw FetchDataException((e.toString()));
     }
-    /*catch(e){
+   /* catch(e){
+      print("jjj");
       print(e.toString());
     }*/
 
@@ -61,6 +62,7 @@ class NetworkApiService extends BaseApiServices {
        
         dynamic responseJson = jsonDecode(response.body);
         print(responseJson);
+        print("hello");
         return responseJson ;
       case 400:
         throw BadRequestException(response.body.toString());
@@ -73,4 +75,4 @@ class NetworkApiService extends BaseApiServices {
     }
   }
 
-}*/
+}

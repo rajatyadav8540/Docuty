@@ -1,5 +1,6 @@
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import '../res/components/round_button.dart';
 import '../utils/routes/routes_name.dart';
 import '../utils/utils.dart';
@@ -49,7 +50,7 @@ class _DocRegisterPageState extends State<DocRegisterPage> {
 
   @override
   Widget build(BuildContext context) {
-    //final authViewMode = Provider.of<AuthViewModel>(context);
+    final authViewMode = Provider.of<AuthViewModel>(context);
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
@@ -237,7 +238,7 @@ class _DocRegisterPageState extends State<DocRegisterPage> {
             padding: const EdgeInsets.only(left: 32, right: 32),
             child: RoundButton(
               title: 'Sign Up',
-             // loading: authViewMode.signUpLoading,
+              loading: authViewMode.signUpLoading,
               onPress: () {
                 if (_usernameController.text.isEmpty) {
                   Utils.flushBarErrorMessage('Please enter username', context);
@@ -259,7 +260,9 @@ class _DocRegisterPageState extends State<DocRegisterPage> {
                     'password': _passwordController.text.toString(),
                   };
 
-                 //
+                  authViewMode.signUpApi(data, context);
+                  Navigator.pushNamed(context, RoutesName.startpage);
+                  print('api hit');
                 }
               },
             ),

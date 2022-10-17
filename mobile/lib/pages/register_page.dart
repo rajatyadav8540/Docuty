@@ -1,10 +1,6 @@
-import 'dart:convert';
-import 'dart:math';
-
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart';
-
+import 'package:provider/provider.dart';
 import '../res/components/round_button.dart';
 import '../utils/routes/routes_name.dart';
 import '../utils/utils.dart';
@@ -20,41 +16,13 @@ class RegisterPage extends StatefulWidget {
 }
 
 class _RegisterPageState extends State<RegisterPage> {
-  ValueNotifier<bool> _obsecurePassword = ValueNotifier<bool>(true);
+  final ValueNotifier<bool> _obsecurePassword = ValueNotifier<bool>(true);
   bool _passWis = true;
-  TextEditingController _emailController = TextEditingController();
-  TextEditingController _passwordController = TextEditingController();
-  TextEditingController _confirmpasswardController = TextEditingController();
-  TextEditingController _usernameController = TextEditingController();
-  TextEditingController _phoneController = TextEditingController();
-
-
-   Future<void> login(String username, password, email) async {
-    try {
-      Response response =
-          await post(Uri.parse('http://127.0.0.1:8000/api/register/'),
-         
-           body: {
-        'username': username,
-        'email': email,
-        'password': password,
-      },
-    headers:{"Accept":"Application/json"},
-      );
-      if (response.statusCode == 200) {
-       final apiResponJson = json.decode(response.body);
-        print('Success Load Data Json ($apiResponJson)');
-        return apiResponJson;
-        print('account sucessfull');
-      } else {
-        print('failed');
-      }
-    } catch (e) {
-      print(e.toString());
-      return null;
-    }
-  }
-
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _confirmpasswardController =TextEditingController();
+  final TextEditingController _usernameController = TextEditingController();
+  final TextEditingController _phoneController = TextEditingController();
 
   FocusNode usernameFocusNode = FocusNode();
   FocusNode emailFocusNode = FocusNode();
@@ -79,11 +47,9 @@ class _RegisterPageState extends State<RegisterPage> {
     _obsecurePassword.dispose();
   }
 
- 
-
   @override
   Widget build(BuildContext context) {
-    //final authViewMode = Provider.of<AuthViewModel>(context);
+    final authViewMode = Provider.of<AuthViewModel>(context);
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
@@ -131,7 +97,7 @@ class _RegisterPageState extends State<RegisterPage> {
               const Text("For Docter,  ", style: TextStyle(fontSize: 18)),
               GestureDetector(
                 onTap: () {
-                  Navigator.pushNamed(context, RoutesName.DocRegisterpage);
+                   Navigator.pushNamed(context, RoutesName.DocRegisterpage);
                 },
                 child: const Text("Register Here",
                     style: TextStyle(
@@ -151,7 +117,7 @@ class _RegisterPageState extends State<RegisterPage> {
               controller: _usernameController,
               focusNode: usernameFocusNode,
               decoration: const InputDecoration(
-                prefixIcon: Icon(Icons.person_outline_sharp),
+                 prefixIcon: const Icon(Icons.person_outline_sharp),
                 hintText: "Enter username",
                 labelText: "Username",
               ),
@@ -163,18 +129,18 @@ class _RegisterPageState extends State<RegisterPage> {
           ),
           // phone number
 
-          Padding(
+         /* Padding(
             padding:
                 const EdgeInsets.only(left: 32, top: 4, right: 32, bottom: 5),
             child: TextFormField(
               controller: _phoneController,
               decoration: const InputDecoration(
-                prefixIcon: const Icon(Icons.phone_android_outlined),
+                 prefixIcon: const Icon(Icons.phone_android_outlined),
                 hintText: "Enter phone number",
                 labelText: "Phone number",
               ),
             ),
-          ),
+          ),*/
           //email textfeild
 
           Padding(
@@ -195,7 +161,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 Utils.fieldFocusChange(
                     context, emailFocusNode, passwordFocusNode);
               },
-              autovalidateMode: AutovalidateMode.onUserInteraction,
+               autovalidateMode: AutovalidateMode.onUserInteraction,
               validator: (email) =>
                   email != null && !EmailValidator.validate(email)
                       ? "Enter a valid email"
@@ -227,7 +193,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       hintText: "Enter passward",
                       labelText: "passward",
                     ),
-                    autovalidateMode: AutovalidateMode.onUserInteraction,
+                      autovalidateMode: AutovalidateMode.onUserInteraction,
                     validator: (value) => value != null && value.length < 6
                         ? "Enter min. 6 characters"
                         : null,
@@ -235,16 +201,16 @@ class _RegisterPageState extends State<RegisterPage> {
                 );
               }),
           // confirm passward
-          Padding(
+          /*Padding(
             padding: const EdgeInsets.only(left: 32, right: 32),
-            child: TextFormField(
-              controller: _confirmpasswardController,
-              obscureText: _obsecurePassword.value,
-              focusNode: confirmpasswordFocusNode,
-              obscuringCharacter: "*",
-              decoration: InputDecoration(
-                prefixIcon: const Icon(Icons.lock_open_rounded),
-                suffixIcon: IconButton(
+            child:TextFormField(
+                    controller: _confirmpasswardController,
+                    obscureText: _obsecurePassword.value,
+                    focusNode: confirmpasswordFocusNode,
+                    obscuringCharacter: "*",
+                    decoration: InputDecoration(
+                       prefixIcon: const Icon(Icons.lock_open_rounded),
+                      suffixIcon: IconButton(
                   onPressed: () {
                     setState(() {
                       _passWis = !_passWis;
@@ -256,13 +222,13 @@ class _RegisterPageState extends State<RegisterPage> {
                 ),
                 hintText: "Confirm Passward",
                 labelText: "Confirm passward",
-              ),
-              autovalidateMode: AutovalidateMode.onUserInteraction,
-              validator: (value) => value != null && value.length < 6
-                  ? "Enter min. 6 characters"
-                  : null,
-            ),
-          ),
+                    ),
+                      autovalidateMode: AutovalidateMode.onUserInteraction,
+                    validator: (value) => value != null && value.length < 6
+                        ? "Enter min. 6 characters"
+                        : null,
+                  ),
+          ),*/
           //sign up
           SizedBox(
             height: MediaQuery.of(context).size.height * 0.025,
@@ -271,7 +237,7 @@ class _RegisterPageState extends State<RegisterPage> {
             padding: const EdgeInsets.only(left: 32, right: 32),
             child: RoundButton(
               title: 'Sign Up',
-              // loading: authViewMode.signUpLoading,
+              loading: authViewMode.signUpLoading,
               onPress: () {
                 if (_usernameController.text.isEmpty) {
                   Utils.flushBarErrorMessage('Please enter username', context);
@@ -282,17 +248,15 @@ class _RegisterPageState extends State<RegisterPage> {
                 } else if (_passwordController.text.length < 6) {
                   Utils.flushBarErrorMessage(
                       'Please enter 6 digit password', context);
-                } else if (_passwordController.text.toString() !=
-                    _confirmpasswardController.text.toString()) {
-                  Utils.flushBarErrorMessage(
-                      'Please enter correct password', context);
-                } else {
-                  login(
-                      _usernameController.text.toString(),
-                      _passwordController.text.toString(),
-                      _emailController.text.toString());
+                } 
+                 else {
+                  Map data = {
+                    'username': _usernameController.text.toString(),
+                    'email': _emailController.text.toString(),
+                    'password': _passwordController.text.toString(),
+                  };
 
-                  //authViewMode.signUpApi(data, context);
+                  authViewMode.signUpApi(data, context);
                   //print('api hit');
                 }
               },
