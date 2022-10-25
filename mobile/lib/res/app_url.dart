@@ -3,7 +3,7 @@
 class AppUrl {
 
 
-  static var baseUrl = 'http://127.0.0.1:8000/' ;
+  static var baseUrl = 'http://192.168.80.114:8000/' ;
 
   static var loginEndPint =  baseUrl + 'api/login/' ;
 

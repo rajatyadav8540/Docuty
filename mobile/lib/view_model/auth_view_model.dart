@@ -1,9 +1,12 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
+import 'package:provider/provider.dart';
+import '../model/user_model.dart';
 import '../respository/auth_repository.dart';
 import '../utils/routes/routes_name.dart';
 import '../utils/utils.dart';
+import 'user_view_model.dart';
 
 class AuthViewModel with ChangeNotifier {
   final _myRepo = AuthRepository();
@@ -29,10 +32,10 @@ class AuthViewModel with ChangeNotifier {
 
     _myRepo.loginApi(data).then((value) {
       setLoading(false);
-     /* final userPreference = Provider.of<UserViewModel>(context, listen: false);
+     final userPreference = Provider.of<UserViewModel>(context, listen: false);
       userPreference.saveUser(UserModel(
           token: value['token'].toString(),
-          expiry: value['expiry'].toString()));*/
+          expiry: value['expiry'].toString()));
 
          Utils.flushBarErrorMessage('Login Successfully', context);
          Navigator.pushNamed(context, RoutesName.startpage);

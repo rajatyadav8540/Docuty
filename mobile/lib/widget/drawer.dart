@@ -1,3 +1,4 @@
+import 'package:doc2/pages/login_page.dart';
 import 'package:flutter/material.dart';
 
 
@@ -91,14 +92,14 @@ class DrawerScreen extends StatelessWidget {
                   ),
                   trailing: sideMenuData['trailing'],
                   onTap: () {
-                    // Navigator.pop(context);
-                    // if (sideMenuData['action_id'] == 1) {
-                    //   Navigator.of(context).push(
-                    //     MaterialPageRoute(
-                    //       builder: (context) => const ProfileScreen(),
-                    //     ),
-                    //   );
-                    // } else if (sideMenuData['action_id'] == 4) {
+                     Navigator.pop(context);
+                     if (sideMenuData['action_id'] == 5) {
+                       Navigator.of(context).push(
+                         MaterialPageRoute(
+                           builder: (context) => const Loginpage(),
+                        ),
+                       );}
+                    //  else if (sideMenuData['action_id'] == 4) {
                     //   Navigator.of(context).push(
                     //     MaterialPageRoute(
                     //       builder: (context) => const SettingScreen(),

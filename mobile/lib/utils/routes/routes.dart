@@ -11,9 +11,9 @@ import '../../view/splash_view.dart';
 class Routes {
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
-     /* case RoutesName.splash:
+      case RoutesName.splash:
         return MaterialPageRoute(
-            builder: (BuildContext context) => const SplashView());*/
+            builder: (BuildContext context) => const SplashView());
 
       case RoutesName.startpage:
         return MaterialPageRoute(

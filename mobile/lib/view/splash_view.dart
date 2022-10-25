@@ -1,4 +1,4 @@
-/*import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 
 import '../view_model/services/splash_services.dart';
 
@@ -31,4 +31,3 @@ class _SplashViewState extends State<SplashView> {
     );
   }
 }
-*/

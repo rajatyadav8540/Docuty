@@ -7,6 +7,8 @@ import 'package:google_fonts/google_fonts.dart';
 
 import 'package:provider/provider.dart';
 
+import 'view_model/user_view_model.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -19,7 +21,7 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
         providers: [
           ChangeNotifierProvider(create: (_) => AuthViewModel()),
-         // ChangeNotifierProvider(create: (_) => UserViewModel())
+          ChangeNotifierProvider(create: (_) => UserViewModel())
         ],
       child: MaterialApp(
         title: 'Flutter Demo',
@@ -29,7 +31,7 @@ class MyApp extends StatelessWidget {
         //primaryTextTheme: GoogleFonts.latoTextTheme()
       ),
       debugShowCheckedModeBanner: false,
-        initialRoute: RoutesName.loginpage,
+        initialRoute: RoutesName.splash,
         onGenerateRoute: Routes.generateRoute,
       ),
     );

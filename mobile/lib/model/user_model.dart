@@ -27,7 +27,7 @@
 }
 */
 
-/*
+
 
 class UserModel {
   String? token;
@@ -43,11 +43,11 @@ class UserModel {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data['token'] = token;
-    data['expiry'] = expiry;
+    final Map<String, dynamic> data =new Map<String, dynamic>();
+    data['token'] = this.token;
+    data['expiry'] = this.expiry;
 
     return data;
   }
 }
-*/
+
