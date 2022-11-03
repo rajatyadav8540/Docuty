@@ -17,6 +17,9 @@ class AuthViewModel with ChangeNotifier {
   bool _signUpLoading = false;
   bool get signUpLoading => _signUpLoading;
 
+  bool _doctorsignUpLoading = false;
+  bool get doctorsignUpLoading => _doctorsignUpLoading;
+
   setLoading(bool value) {
     _loading = value;
     notifyListeners();
@@ -24,6 +27,11 @@ class AuthViewModel with ChangeNotifier {
 
   setSignUpLoading(bool value) {
     _signUpLoading = value;
+    notifyListeners();
+  }
+
+   setdoctorSignUpLoading(bool value) {
+    _doctorsignUpLoading = value;
     notifyListeners();
   }
 
@@ -35,7 +43,8 @@ class AuthViewModel with ChangeNotifier {
      final userPreference = Provider.of<UserViewModel>(context, listen: false);
       userPreference.saveUser(UserModel(
           token: value['token'].toString(),
-          expiry: value['expiry'].toString()));
+          //expiry: value['expiry'].toString()
+          ));
 
          Utils.flushBarErrorMessage('Login Successfully', context);
          Navigator.pushNamed(context, RoutesName.startpage);
@@ -69,4 +78,24 @@ class AuthViewModel with ChangeNotifier {
       }
     });
   }
+
+Future<void> doctorsignUpApi(dynamic data, BuildContext context) async {
+    setdoctorSignUpLoading(true);
+
+    _myRepo.doctorsignUpApi(data).then((value) {
+      setdoctorSignUpLoading(false);
+      Utils.flushBarErrorMessage('SignUp Successfully', context);
+      Navigator.pushNamed(context, RoutesName.startpage);
+      if (kDebugMode) {
+        print(value.toString());
+      }
+    }).onError((error, stackTrace) {
+      setdoctorSignUpLoading(false);
+      Utils.flushBarErrorMessage(error.toString(), context);
+      if (kDebugMode) {
+        print(error.toString());
+      }
+    });
+  }
+
 }

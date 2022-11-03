@@ -201,7 +201,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 );
               }),
           // confirm passward
-          /*Padding(
+          Padding(
             padding: const EdgeInsets.only(left: 32, right: 32),
             child:TextFormField(
                     controller: _confirmpasswardController,
@@ -228,7 +228,7 @@ class _RegisterPageState extends State<RegisterPage> {
                         ? "Enter min. 6 characters"
                         : null,
                   ),
-          ),*/
+          ),
           //sign up
           SizedBox(
             height: MediaQuery.of(context).size.height * 0.025,
@@ -254,10 +254,12 @@ class _RegisterPageState extends State<RegisterPage> {
                     'username': _usernameController.text.toString(),
                     'email': _emailController.text.toString(),
                     'password': _passwordController.text.toString(),
+                    'password2': _confirmpasswardController.text.toString(),
                   };
 
                   authViewMode.signUpApi(data, context);
-                  //print('api hit');
+                  print('api hit');
+                  
                 }
               },
             ),

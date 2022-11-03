@@ -20,8 +20,7 @@ class _DocRegisterPageState extends State<DocRegisterPage> {
   bool _passWis = true;
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-  final TextEditingController _confirmpasswardController =
-      TextEditingController();
+  final TextEditingController _confirmpasswardController =TextEditingController();
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _phoneController = TextEditingController();
 
@@ -130,7 +129,7 @@ class _DocRegisterPageState extends State<DocRegisterPage> {
           ),
           // phone number
 
-          Padding(
+        /*  Padding(
             padding:
                 const EdgeInsets.only(left: 32, top: 4, right: 32, bottom: 5),
             child: TextFormField(
@@ -141,7 +140,7 @@ class _DocRegisterPageState extends State<DocRegisterPage> {
                 labelText: "Phone number",
               ),
             ),
-          ),
+          ),*/
           //email textfeild
 
           Padding(
@@ -258,9 +257,10 @@ class _DocRegisterPageState extends State<DocRegisterPage> {
                     'username': _usernameController.text.toString(),
                     'email': _emailController.text.toString(),
                     'password': _passwordController.text.toString(),
+                    'password2': _confirmpasswardController.text.toString(),
                   };
 
-                  authViewMode.signUpApi(data, context);
+                  authViewMode.doctorsignUpApi(data, context);
                  // Navigator.pushNamed(context, RoutesName.startpage);
                   //print('api hit');
                 }

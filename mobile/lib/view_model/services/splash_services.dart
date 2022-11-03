@@ -10,13 +10,11 @@ class SplashServices {
 
   void checkAuthentication(BuildContext context) async {
     getUserDate().then((value) async {
-     // print(value.token.toString());
+      // print(value.token.toString());
 
       if (value.token.toString() == 'null' || value.token.toString() == '') {
-        if (value.expiry.toString() == 'null' || value.expiry.toString() == '') {
-          await Future.delayed(Duration(seconds: 3));
-          Navigator.pushNamed(context, RoutesName.loginpage);
-        }
+        await Future.delayed(Duration(seconds: 3));
+        Navigator.pushNamed(context, RoutesName.loginpage);
       } else {
         await Future.delayed(Duration(seconds: 3));
         Navigator.pushNamed(context, RoutesName.startpage);

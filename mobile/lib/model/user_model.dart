@@ -31,21 +31,21 @@
 
 class UserModel {
   String? token;
-   String? expiry;
+   //String? expiry;
 
 
-  UserModel({this.token,this.expiry});
+  UserModel({this.token});
 
   UserModel.fromJson(Map<String, dynamic> json) {
     token = json['token'];
-    expiry = json['expiry'];
+   // expiry = json['expiry'];
 
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data =new Map<String, dynamic>();
     data['token'] = this.token;
-    data['expiry'] = this.expiry;
+    //data['expiry'] = this.expiry;
 
     return data;
   }

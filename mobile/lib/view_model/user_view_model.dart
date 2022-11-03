@@ -12,7 +12,7 @@ class UserViewModel with ChangeNotifier{
 
     final SharedPreferences sp = await SharedPreferences.getInstance();
     sp.setString('token', user.token.toString());
-    sp.setString('expiry', user.expiry.toString());
+    //sp.setString('expiry', user.expiry.toString());
     notifyListeners();
     return true ;
   }
@@ -21,12 +21,12 @@ class UserViewModel with ChangeNotifier{
 
     final SharedPreferences sp = await SharedPreferences.getInstance();
     final String? token = sp.getString('token');
-    final String? expiry = sp.getString('expiry');
+   // final String? expiry = sp.getString('expiry');
 
 
     return UserModel(
       token: token.toString(),
-      expiry: expiry.toString()
+      //expiry: expiry.toString()
     );
   }
 
@@ -34,7 +34,7 @@ class UserViewModel with ChangeNotifier{
 
     final SharedPreferences sp = await SharedPreferences.getInstance();
     sp.remove('token');
-    sp.remove('expiry');
+  //  sp.remove('expiry');
     return true;
 
   }

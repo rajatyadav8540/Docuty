@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
-from pickle import TRUE
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -26,9 +25,13 @@ SECRET_KEY = 'django-insecure-&1&jmsipp3y4)dq(00n-%qw-u$+z)k!g6fx70+cxt4&u@@_)52
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.170.114','127.0.0.1']
-#CORS_ALLOWED_ORIGINS = ["*"]
-CORS_ORIGIN_ALLOW_ALL=True
+ALLOWED_HOSTS = []
+CORS_ALLOWED_ORIGINS = [
+   
+    "http://localhost:3000",
+    "http://127.0.0.1:3000",
+]
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -41,7 +44,7 @@ INSTALLED_APPS = [
     'customer_panel',
     'rest_framework',
     'knox',
-    'corsheaders',
+    'corsheaders',   
 ]
 
 MIDDLEWARE = [
