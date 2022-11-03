@@ -18,7 +18,7 @@ export default function Signup() {
     e.preventDefault();
 
     console.log(JSON.stringify(signupState));
-    let result = await fetch("http://127.0.0.1:8000/api/register/", {
+    let result = await fetch("http://127.0.0.1:8000/api/signup/patient/", {
       //fetching api for crosss origin credentials matching
       method: "POST",
       body: JSON.stringify(signupState),

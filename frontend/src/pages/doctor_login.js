@@ -1,6 +1,6 @@
 
 import Header from "../components/signup_login/header"
-import Login from "../components/signup_login/login"
+import Login from "../components/signup_login/doc_login"
 
 import Navbar  from "../components/navbar/navbarbase"
 

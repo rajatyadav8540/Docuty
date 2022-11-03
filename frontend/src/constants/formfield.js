@@ -52,6 +52,16 @@ const signupFields = [
 		isRequired: true,
 		placeholder: 'Password',
 	},
+	{
+		labelText: 'Password',
+		labelFor: 'password',
+		id: 'password2',
+		name: 'password2',
+		type: 'password',
+		autoComplete: 'current-password',
+		isRequired: true,
+		placeholder: 'Password',
+	},
 ];
 
 export { loginFields, signupFields };

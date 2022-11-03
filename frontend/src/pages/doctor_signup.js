@@ -1,6 +1,6 @@
 
 import Header from "../components/signup_login/header"
-import Signup from "../components/signup_login/signup"
+import Signup from "../components/signup_login/doc_signup"
 
 import Navbar  from "../components/navbar/navbarbase"
 export default function SignDoc(){

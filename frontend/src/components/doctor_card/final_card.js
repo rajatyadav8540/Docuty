@@ -14,7 +14,6 @@ export default function DocCard() {
         <div className="grid grid-cols-4 gap-4 ">
           {doc.map((docy) => (
             <Template
-                
               name={docy.name}
               image={docy.img}
               content={docy.content}

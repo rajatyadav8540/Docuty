@@ -6,7 +6,7 @@ export default function Navbar() {
   const history = useNavigate();
   const loggedIn = localStorage.getItem("token");
   function onsubmit(e) {
-	console.log('sdfgdsfds')
+    console.log("sdfgdsfds");
     e.preventDefault();
     if (loggedIn) {
       window.localStorage.clear();
