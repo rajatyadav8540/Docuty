@@ -261,8 +261,8 @@ class _DocRegisterPageState extends State<DocRegisterPage> {
                   };
 
                   authViewMode.signUpApi(data, context);
-                  Navigator.pushNamed(context, RoutesName.startpage);
-                  print('api hit');
+                 // Navigator.pushNamed(context, RoutesName.startpage);
+                  //print('api hit');
                 }
               },
             ),
