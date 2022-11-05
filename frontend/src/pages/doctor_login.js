@@ -1,7 +1,7 @@
 
 import Header from "../components/signup_login/header"
-import Login from "../components/signup_login/doc_login"
-
+import Login from "../components/signup_login/login"
+import Button from "../components/signup_login/formaction"
 import Navbar  from "../components/navbar/navbarbase"
 
 export default function LoginDoc(){
@@ -18,7 +18,7 @@ export default function LoginDoc(){
                 />
 
                 <Login/>
-                
+                <Button text='login'/>
                 </div>
             
         </div>
