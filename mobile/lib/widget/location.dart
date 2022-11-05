@@ -28,7 +28,11 @@ class MySearchDelegate extends SearchDelegate {
 
   @override
   Widget buildResults(BuildContext context) =>
+<<<<<<< HEAD
    startpage();
+=======
+   const startpage();
+>>>>>>> dc84e91b8b4f89e32560191b097498d3e3aa15c6
   
      /*Text(query,
     style:const TextStyle(fontSize: 64,
