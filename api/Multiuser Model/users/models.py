@@ -20,7 +20,7 @@ def create_auth_token(sender, instance=None, created=False, **kwargs):
 
 
 class Doctor(models.Model):
-    user=models.OneToOneField(User, related_name="Doctor", on_delete=models.CASCADE)
+    user=models.OneToOneField(User, related_name="doctor", on_delete=models.CASCADE,null=True)
     phone=models.CharField(max_length=12, null=True, blank=True)
     city=models.CharField(max_length=12, null=True, blank=True)
     experience=models.CharField(max_length=100, null=True, blank=True)
