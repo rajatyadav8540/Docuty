@@ -3,10 +3,13 @@ from django.http import request
 from rest_framework import generics, permissions, status
 from rest_framework.authtoken.models import Token
 from rest_framework.response import Response
-from .serializers import DoctorSignupSerializer, PatientSignupSerializer, UserSerializer
+from .serializers import DoctorSignupSerializer, PatientSignupSerializer, UserSerializer,Doctoronlyserializer
 from rest_framework.authtoken.views import ObtainAuthToken
 from rest_framework.views import APIView
 from .permissions import IsDoctor, IsPatient
+from rest_framework.generics import ListAPIView
+from users.models import Doctor, Patient
+from rest_framework.filters import SearchFilter 
 
 class DoctorSignupView(generics.GenericAPIView):
     serializer_class=DoctorSignupSerializer
@@ -52,16 +55,19 @@ class LogoutView(APIView):
         return Response(status=status.HTTP_200_OK)
 
 
-class DoctorOnlyView(generics.RetrieveAPIView):
-    permission_classes=[permissions.IsAuthenticated&IsDoctor]
-    serializer_class=UserSerializer
+class DoctorOnlyView(ListAPIView):
+     
+      queryset=Doctor.objects.all()
+      serializer_class=Doctoronlyserializer
+      filter_backends=[SearchFilter]
+      search_fields=['speciality']
 
-    def get_object(self):
-        return self.request.user
+      
+   
 
-class PatientOnlyView(generics.RetrieveAPIView):
-    permission_classes=[permissions.IsAuthenticated&IsPatient]
-    serializer_class=UserSerializer
+class PatientOnlyView(ListAPIView):
+    
+    queryset=Patient.objects.all()
+    serializer_class=PatientSignupSerializer
 
-    def get_object(self):
-        return self.request.user
+    

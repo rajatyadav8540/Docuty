@@ -38,9 +38,12 @@ dependencies:
   email_validator: ^2.0.1
   http: ^0.13.5
   logger: ^1.1.0
+  another_flushbar: ^1.12.29
+  fluttertoast: ^8.0.9
+  provider: ^6.0.3
+  shared_preferences: ^2.0.15
+   
   
-  
-
 
 dev_dependencies:
   flutter_test:
