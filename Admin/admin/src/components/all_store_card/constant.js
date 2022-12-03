@@ -1,0 +1,73 @@
+const data = [
+  {
+    image: "http://dummyimage.com/300x300.png/5fa2dd/ffffff",
+    phone: "319-256-2513",
+    text: "Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
+    time1: "10:33 PM",
+    time2: "1:17 PM",
+  },
+  {
+    image: "http://dummyimage.com/300x300.png/cc0000/ffffff",
+    phone: "417-289-0322",
+    text: "Aenean fermentum. Donec ut mauris eget massa tempor convallis. Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh.",
+    time1: "8:40 PM",
+    time2: "1:00 PM",
+  },
+  {
+    image: "http://dummyimage.com/300x300.png/cc0000/ffffff",
+    phone: "120-879-9548",
+    text: "Integer ac leo. Pellentesque ultrices mattis odio. Donec vitae nisi.",
+    time1: "2:38 AM",
+    time2: "11:16 PM",
+  },
+  {
+    image: "http://dummyimage.com/300x300.png/5fa2dd/ffffff",
+    phone: "609-223-6934",
+    text: "Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem.",
+    time1: "9:51 AM",
+    time2: "8:54 AM",
+  },
+  {
+    image: "http://dummyimage.com/300x300.png/dddddd/000000",
+    phone: "148-635-5295",
+    text: "Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque.",
+    time1: "5:35 AM",
+    time2: "6:43 AM",
+  },
+  {
+    image: "http://dummyimage.com/300x300.png/cc0000/ffffff",
+    phone: "154-404-4526",
+    text: "Phasellus in felis. Donec semper sapien a libero. Nam dui.",
+    time1: "10:44 PM",
+    time2: "3:58 PM",
+  },
+  {
+    image: "http://dummyimage.com/300x300.png/dddddd/000000",
+    phone: "273-142-5964",
+    text: "Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem.",
+    time1: "3:32 AM",
+    time2: "11:45 AM",
+  },
+  {
+    image: "http://dummyimage.com/300x300.png/ff4444/ffffff",
+    phone: "753-973-5408",
+    text: "Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum. Aliquam non mauris.",
+    time1: "2:28 PM",
+    time2: "2:34 PM",
+  },
+  {
+    image: "http://dummyimage.com/300x300.png/cc0000/ffffff",
+    phone: "320-848-8480",
+    text: "In congue. Etiam justo. Etiam pretium iaculis justo.",
+    time1: "6:32 AM",
+    time2: "4:38 PM",
+  },
+  {
+    image: "http://dummyimage.com/300x300.png/dddddd/000000",
+    phone: "964-726-6823",
+    text: "In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo.",
+    time1: "6:37 PM",
+    time2: "9:19 AM",
+  },
+];
+export { data };
