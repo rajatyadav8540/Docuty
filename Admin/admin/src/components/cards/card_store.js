@@ -15,18 +15,19 @@ export default function Store() {
   }, []);
 
   return (
-    <div className="grid grid-cols-4 gap-4">
+    <>
       {console.log(Object.entries(data_))}
-
       {Object.entries(data_).map((dataa) =>
         data == dataa[0] ? (
-          <div className="border-2 p-12 rounded-xl">
-            <Cards_title title={dataa[0]} />
+          <div className="border-2 p-12 rounded-xl grid grid-cols-4 gap-4">
+            {Object.entries(dataa[1]).map((info_) => (
+              <Cards_title title={info_[1].id} />
+            ))}
           </div>
         ) : (
           <></>
         )
       )}
-    </div>
+    </>
   );
 }
