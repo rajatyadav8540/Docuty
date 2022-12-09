@@ -6,7 +6,17 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Store from "./components/cards/card_store";
 import firebase from "firebase";
 import React from "react";
+import { db, auth } from "./index.js";
+import { useState, useEffect } from "react";
 function App() {
+  const [data, setdata] = useState("");
+  useEffect(() => {
+    let ref = firebase.database().ref("Brands");
+    ref.on("value", (snapshot) => {
+      const info = snapshot.val();
+      setdata(info);
+    });
+  }, []);
   const firebaseApp = firebase.apps[0];
   return (
     <div className="App">
@@ -19,6 +29,7 @@ function App() {
       </BrowserRouter>
       <Footer />
       <code>
+        {console.log(data)}
         <pre>{JSON.stringify(firebaseApp.options, null, 2)}</pre>
       </code>
     </div>

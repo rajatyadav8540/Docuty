@@ -21,11 +21,13 @@ const firebaseConfig = {
 };
 
 const app = firebase.initializeApp(firebaseConfig);
-
+export const auth = firebase.auth();
+export const db = firebase.firestore();
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <App />
+    {console.log(app)}
   </React.StrictMode>
 );
 
