@@ -2,7 +2,7 @@ import Cards_title from "./cards_title";
 import firebase from "../../index.js";
 import { useState, useEffect } from "react";
 import React from "react";
-import { useLocation, useParams } from "react-router-dom";
+import { useLocation, useParams, Link } from "react-router-dom";
 export default function Store() {
   const { data } = useLocation().state;
   const [data_, setdata_] = useState("");
@@ -22,7 +22,13 @@ export default function Store() {
         data == dataa[0] ? (
           <div className="border-2 p-12 m-4 rounded-xl grid grid-cols-4 gap-4">
             {Object.entries(dataa[1]).map((info_) => (
-              <Cards_title title={info_[1].id} />
+              <Link
+                to="/serve/card/param"
+                state={{ data: info_[1].id + " " + data }} // your data array of objects
+                className="hover:no-underline hover:text-black"
+              >
+                <Cards_title title={info_[1].id} />
+              </Link>
             ))}
           </div>
         ) : (

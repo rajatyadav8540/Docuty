@@ -17,6 +17,7 @@ function App() {
           <Route path="/card" element={<Store />}></Route>
           <Route path="/card_body" element={<Card />}></Route>
           <Route exact path="/serve/display/:details" element={<Store />} />
+          <Route exact path="/serve/card/:details" element={<Card />} />
         </Routes>
       </BrowserRouter>
       <Footer />
